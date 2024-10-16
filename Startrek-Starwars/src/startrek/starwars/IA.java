@@ -10,7 +10,7 @@ import primitives.*;
  * @author rgabr
  */
 public class IA {
-     Personaje pj1;
+    Personaje pj1;
     Personaje pj2;
     String resultado;
     Lista lista;
@@ -22,9 +22,66 @@ public class IA {
         this.lista = lista;
     }
 
+    /**Decide el ganador basandose en las habilidad, agilidad, fuerza y vida de los personajes*/
     public void DecidirGanador(){
+        int puntajePj1 = 0;
+        int puntajePj2 = 0;
         
+        // Comparar habilidad
+        if (this.getPj1().getHabilidad() > this.getPj2().getHabilidad()){
+            puntajePj1++;
+        } else if (this.getPj1().getHabilidad() < this.getPj2().getHabilidad()){
+            puntajePj2++;
+        } else{
+            puntajePj1++;
+            puntajePj2++;
+        }
+        
+        // Comparar agilidad
+        if (this.getPj1().getAgilidad() > this.getPj2().getAgilidad()){
+            puntajePj1++;
+        } else if (this.getPj1().getAgilidad() < this.getPj2().getAgilidad()){
+            puntajePj2++;
+        } else {
+            puntajePj1++;
+            puntajePj2++;
+        }
+        
+        // Comparar fuerza
+        if (this.getPj1().getFuerza() > this.getPj2().getFuerza()){
+            puntajePj1++;
+        } else if (this.getPj1().getFuerza() < this.getPj2().getFuerza()) {
+            puntajePj2++;
+        } else {
+            puntajePj1++;
+            puntajePj2++;
+        }
+        
+        // Comparar vida
+        if (this.getPj1().getVida() > this.getPj2().getVida()){
+            puntajePj1++;
+        } else if (this.getPj1().getVida() < this.getPj2().getVida()) {
+            puntajePj2++;
+        } else {
+            puntajePj1++;
+            puntajePj2++;
+        }
+        
+        // Comparar puntajes finales
+        if (puntajePj1 > puntajePj2){
+            System.out.println("Jugador 1 gana");
+        } else if (puntajePj1 == puntajePj2) {
+            int decision = (int) (Math.random() * 10 + 1);
+            if (decision <= 5){
+                System.out.println("Jugador 1 gana");
+            } else {
+                System.out.println("Jugador 2 gana");
+            }            
+        } else {
+            System.out.println("Jugador 2 gana");
+        } 
     }
+    
     public Personaje getPj1() {
         return pj1;
     }
