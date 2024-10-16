@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.starwars.startrek;
+package startrek.starwars;
 
 /**
  *
  * @author rgabr
  */
 public class Saga {
-    Personaje personaje;// posible lista de personajes
+     Personaje personaje;// posible lista de personajes
     String Nombre;
 
     public Saga(Personaje personaje, String Nombre) {
@@ -32,6 +32,4 @@ public class Saga {
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
-    
-   
 }

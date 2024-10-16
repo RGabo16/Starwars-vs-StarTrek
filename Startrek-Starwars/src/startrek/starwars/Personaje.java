@@ -2,17 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.starwars.startrek;
+package startrek.starwars;
 
 /**
  *
  * @author rgabr
  */
 public class Personaje {
-    int id;
+     int id;
     String nombre;
     int agilidad;
-    int habilidades;
+    int habilidad;
     int fuerza;
     int vida;
     int prioridad;
@@ -20,13 +20,9 @@ public class Personaje {
     String Calidad; //maybe int
     Saga saga;//maybe
 
-    public Personaje(int id, String nombre, int agilidad, int habilidades, int fuerza, int vida, int prioridad, int contador, String Calidad, Saga saga) {
+    public Personaje(int id, String nombre, int prioridad, int contador, String Calidad, Saga saga) {
         this.id = id;
         this.nombre = nombre;
-        this.agilidad = agilidad;
-        this.habilidades = habilidades;
-        this.fuerza = fuerza;
-        this.vida = vida;
         this.prioridad = prioridad;
         this.contador = contador;
         this.Calidad = Calidad;
@@ -41,6 +37,11 @@ public class Personaje {
         vida
         fuerza
         */
+        this.habilidad=(int)(Math.random()*10+1);
+        System.out.println("Habilidad: "+this.getHabilidad() );
+        this.habilidad=(int)(Math.random()*10+1);
+        System.out.println("Habilidad: "+this.getHabilidad() );
+        
     }
     
     public void DefinirCalidad(){
@@ -80,12 +81,12 @@ public class Personaje {
         this.agilidad = agilidad;
     }
 
-    public int getHabilidades() {
-        return habilidades;
+    public int getHabilidad() {
+        return habilidad;
     }
 
-    public void setHabilidades(int habilidades) {
-        this.habilidades = habilidades;
+    public void setHabilidad(int habilidades) {
+        this.habilidad = habilidades;
     }
 
     public int getFuerza() {
@@ -136,5 +137,5 @@ public class Personaje {
         this.saga = saga;
     }
     
-    
+   
 }
