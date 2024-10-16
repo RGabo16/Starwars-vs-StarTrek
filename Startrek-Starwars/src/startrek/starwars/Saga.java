@@ -9,11 +9,12 @@ package startrek.starwars;
  * @author rgabr
  */
 public class Saga {
-     Personaje personaje;// posible lista de personajes
+    Personaje personaje;// posible lista de personajes
     String Nombre;
+    int puntos;
 
-    public Saga(Personaje personaje, String Nombre) {
-        this.personaje = personaje;
+    public Saga( String Nombre) {
+        
         this.Nombre = Nombre;
     }
 

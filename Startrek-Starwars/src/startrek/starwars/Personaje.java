@@ -9,8 +9,8 @@ package startrek.starwars;
  * @author rgabr
  */
 public class Personaje {
-     int id;
-    String nombre;
+    int id;
+    String nombre;//probablemente txt 
     int agilidad;
     int habilidad;
     int fuerza;
@@ -20,11 +20,11 @@ public class Personaje {
     String Calidad; //maybe int
     Saga saga;//maybe
 
-    public Personaje(int id, String nombre, int prioridad, int contador, String Calidad, Saga saga) {
+    public Personaje(int id, String nombre, int prioridad, String Calidad, Saga saga) {
         this.id = id;
         this.nombre = nombre;
         this.prioridad = prioridad;
-        this.contador = contador;
+        this.contador = 0;
         this.Calidad = Calidad;
         this.saga = saga;
     }
@@ -39,8 +39,12 @@ public class Personaje {
         */
         this.habilidad=(int)(Math.random()*10+1);
         System.out.println("Habilidad: "+this.getHabilidad() );
-        this.habilidad=(int)(Math.random()*10+1);
-        System.out.println("Habilidad: "+this.getHabilidad() );
+        this.agilidad=(int)(Math.random()*10+1);
+        System.out.println("Agilidad: "+this.getAgilidad() );
+        this.fuerza=(int)(Math.random()*10+1);
+        System.out.println("Fuerza: "+this.getFuerza() );
+        this.vida=(int)(Math.random()*10+1);
+        System.out.println("Vida: "+this.getVida());
         
     }
     
@@ -55,6 +59,33 @@ public class Personaje {
         excepcional =4
         promedio 2 y 3
         */
+        this.DefinirStats();
+        int i =0;
+        if (this.getHabilidad()>4){
+            i++;
+        }
+        if (this.getAgilidad()>6){
+            i++;
+        }
+        if (this.getFuerza()>5){
+            i++;
+        }
+        if (this.getVida()>3){
+            i++;
+        }
+        if (i<=1){
+            this.setCalidad("Deficiente");
+            this.setPrioridad(3);
+        }else if(i==4){
+            this.setCalidad("Excepcional");
+            this.setPrioridad(1);
+        }else{
+            this.setCalidad("Promedio");
+            this.setPrioridad(2);
+        }
+        System.out.println("I: "+ i);
+        System.out.println("Calidad: "+this.getCalidad());
+        System.out.println("Prioridad: "+this.getPrioridad());
     }
 
     public int getId() {
