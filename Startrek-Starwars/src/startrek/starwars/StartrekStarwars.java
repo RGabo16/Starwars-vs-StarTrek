@@ -15,6 +15,11 @@ public class StartrekStarwars {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Saga sw;
+        sw= new Saga("Star Wars");
+        Personaje pj;
+        pj = new Personaje(1,"A",2,"B",sw);
+        pj.DefinirCalidad();
     }
     
 }
