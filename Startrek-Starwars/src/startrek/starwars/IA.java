@@ -14,6 +14,7 @@ public class IA {
     Personaje pj2;
     String resultado;
     Lista lista;
+    String estado;
 
     public IA(Personaje pj1, Personaje pj2) {
         this.pj1 = pj1;
@@ -133,6 +134,14 @@ public class IA {
 
     public void setLista(Lista lista) {
         this.lista = lista;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
     
    
