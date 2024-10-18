@@ -20,12 +20,10 @@ public class Personaje {
     String Calidad; //maybe int
     Saga saga;//maybe
 
-    public Personaje(int id, String nombre, int prioridad, String Calidad, Saga saga) {
+    public Personaje(int id, String nombre, Saga saga) {
         this.id = id;
         this.nombre = nombre;
-        this.prioridad = prioridad;
         this.contador = 0;
-        this.Calidad = Calidad;
         this.saga = saga;
     }
     

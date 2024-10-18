@@ -15,11 +15,9 @@ public class IA {
     String resultado;
     Lista lista;
 
-    public IA(Personaje pj1, Personaje pj2, String resultado, Lista lista) {
+    public IA(Personaje pj1, Personaje pj2) {
         this.pj1 = pj1;
         this.pj2 = pj2;
-        this.resultado = resultado;
-        this.lista = lista;
     }
 
     /**Decide el ganador basandose en las habilidad, agilidad, fuerza y vida de los personajes*/
@@ -69,17 +67,18 @@ public class IA {
         
         // Comparar puntajes finales
         if (puntajePj1 > puntajePj2){
-            System.out.println("Jugador 1 gana");
+            System.out.println("Jugador " +this.getPj1().getNombre()+ " gana");
         } else if (puntajePj1 == puntajePj2) {
             int decision = (int) (Math.random() * 10 + 1);
             if (decision <= 5){
-                System.out.println("Jugador 1 gana");
+                System.out.println("Jugador " +this.getPj1().getNombre()+ " gana");
             } else {
-                System.out.println("Jugador 2 gana");
+                System.out.println("Jugador " +this.getPj2().getNombre()+ " gana");
             }            
         } else {
-            System.out.println("Jugador 2 gana");
+            System.out.println("Jugador " +this.getPj2().getNombre()+ " gana");
         } 
+        System.out.println("P1: "+puntajePj1+ " P2: "+ puntajePj2);
     }
     
     public Personaje getPj1() {
