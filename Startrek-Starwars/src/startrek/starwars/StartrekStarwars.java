@@ -28,7 +28,7 @@ public class StartrekStarwars {
         pjs.DefinirCalidad();
         
         ia = new IA(pj, pjs);
-        ia.DecidirGanador();    
+        ia.startIA();
        
     }
     

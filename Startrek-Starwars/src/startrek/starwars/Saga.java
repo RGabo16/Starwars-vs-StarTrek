@@ -33,4 +33,13 @@ public class Saga {
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+    
 }

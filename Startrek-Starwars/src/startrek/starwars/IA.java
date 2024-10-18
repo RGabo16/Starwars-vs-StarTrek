@@ -68,19 +68,41 @@ public class IA {
         // Comparar puntajes finales
         if (puntajePj1 > puntajePj2){
             System.out.println("Jugador " +this.getPj1().getNombre()+ " gana");
+            this.getPj1().getSaga().setPuntos(this.getPj1().getSaga().getPuntos()+1);
         } else if (puntajePj1 == puntajePj2) {
             int decision = (int) (Math.random() * 10 + 1);
             if (decision <= 5){
                 System.out.println("Jugador " +this.getPj1().getNombre()+ " gana");
+                this.getPj1().getSaga().setPuntos(this.getPj1().getSaga().getPuntos()+1);
+
             } else {
                 System.out.println("Jugador " +this.getPj2().getNombre()+ " gana");
+                this.getPj2().getSaga().setPuntos(this.getPj2().getSaga().getPuntos()+1);
             }            
         } else {
             System.out.println("Jugador " +this.getPj2().getNombre()+ " gana");
+            this.getPj2().getSaga().setPuntos(this.getPj2().getSaga().getPuntos()+1);
         } 
         System.out.println("P1: "+puntajePj1+ " P2: "+ puntajePj2);
+        System.out.println("SW: "+this.getPj1().getSaga().getPuntos()+" ST: "+this.getPj2().getSaga().getPuntos());//siempre el pj2 es de ST
     }
     
+    public void startIA(){
+        float num=(float)(Math.random()*10+1);
+        if (num <=4.0){
+            //40% de que alguien gane
+            this.DecidirGanador();
+        }else if (num<=6.7){
+            this.resultado="Empate";
+            System.out.println(this.getResultado());
+            
+            
+        }else{
+            this.resultado="Pelea cancelada";
+            System.out.println(this.getResultado());
+        }
+        System.out.println("num: " +num);
+    }
     public Personaje getPj1() {
         return pj1;
     }
