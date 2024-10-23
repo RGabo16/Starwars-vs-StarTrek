@@ -3,22 +3,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package startrek.starwars;
+import java.time.Duration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import primitives.*;
         
 /**
  *
  * @author rgabr
  */
-public class IA {
+public class IA extends Thread {
     Personaje pj1;
     Personaje pj2;
     String resultado;
     Lista lista;
     String estado;
+    double tiempo;
+    Administrador admin;
+    
 
-    public IA(Personaje pj1, Personaje pj2) {
+    public IA(Personaje pj1, Personaje pj2 ,double tiempo, Administrador admin){
         this.pj1 = pj1;
         this.pj2 = pj2;
+        this.tiempo=tiempo;
+        this.admin=admin;
+        
     }
 
     /**Decide el ganador basandose en las habilidad, agilidad, fuerza y vida de los personajes*/
@@ -87,11 +96,20 @@ public class IA {
         System.out.println("P1: "+puntajePj1+ " P2: "+ puntajePj2);
         System.out.println("SW: "+this.getPj1().getSaga().getPuntos()+" ST: "+this.getPj2().getSaga().getPuntos());//siempre el pj2 es de ST
     }
-    
+    //hilo para la espera y semaforo
     public void startIA(){
+     
+        try {
+            
+              Thread.sleep(Duration.ofSeconds((long)(tiempo*10)));
+            } catch (InterruptedException ex) {
+                Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
+            }
         float num=(float)(Math.random()*10+1);
         if (num <=4.0){
             //40% de que alguien gane
+            
+            
             this.DecidirGanador();
         }else if (num<=6.7){
             this.resultado="Empate";
