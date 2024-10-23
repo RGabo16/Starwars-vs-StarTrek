@@ -4,6 +4,8 @@
  */
 package startrek.starwars;
 
+import interfaces.PrincipalView;
+
 /**
  *
  * @author rgabr
@@ -15,6 +17,11 @@ public class StartrekStarwars {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        PrincipalView main = new PrincipalView();
+        main.setLocationRelativeTo(null);
+        main.setVisible(true);
+        
         
         IA ia;
         

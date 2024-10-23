@@ -32,29 +32,45 @@ public class PrincipalView extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1100, 800));
+        setMinimumSize(new java.awt.Dimension(1100, 800));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         principalView.setPreferredSize(new java.awt.Dimension(1100, 800));
         principalView.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        start.setBackground(java.awt.Color.darkGray);
-        start.setForeground(java.awt.Color.white);
+        start.setBackground(java.awt.Color.white);
+        start.setForeground(java.awt.Color.black);
         start.setText("INICIAR SIMULACIÓN");
-        principalView.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 190, 80));
+        start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startActionPerformed(evt);
+            }
+        });
+        principalView.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 190, 80));
 
-        title.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        title.setFont(new java.awt.Font("Segoe UI", 1, 54)); // NOI18N
         title.setForeground(java.awt.Color.white);
         title.setText("Star Wars vs Star Trek");
-        principalView.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, -1, -1));
+        principalView.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/R.jpeg"))); // NOI18N
+        fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpeg"))); // NOI18N
         principalView.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(principalView, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
+        // TODO add your handling code here:
+        SimulationView simulation = new SimulationView();
+        simulation.setLocationRelativeTo(null);
+        simulation.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_startActionPerformed
 
     /**
      * @param args the command line arguments
