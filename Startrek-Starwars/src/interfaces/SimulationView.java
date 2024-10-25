@@ -89,13 +89,13 @@ public class SimulationView extends javax.swing.JFrame {
         jLabel4.setText("COLA 3");
         principalView.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
 
-        pj1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpeg"))); // NOI18N
+        pj1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jean-luc picard star trek.jpg"))); // NOI18N
         pj1.setText("jLabel9");
-        principalView.add(pj1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 200, 480));
+        principalView.add(pj1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 200, 300));
 
-        pj2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpeg"))); // NOI18N
+        pj2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Darth Vader star wars.jpg"))); // NOI18N
         pj2.setText("jLabel9");
-        principalView.add(pj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 190, 480));
+        principalView.add(pj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 200, 300));
 
         habilidadesPj1.setForeground(java.awt.Color.white);
         habilidadesPj1.setText("jLabel9");
@@ -220,7 +220,7 @@ public class SimulationView extends javax.swing.JFrame {
         title.setText("Star Wars vs Star Trek");
         principalView.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/R.jpeg"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpeg"))); // NOI18N
         principalView.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
 
         getContentPane().add(principalView, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
