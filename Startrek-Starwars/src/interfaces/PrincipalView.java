@@ -15,6 +15,7 @@ public class PrincipalView extends javax.swing.JFrame {
      */
     public PrincipalView() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -67,7 +68,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         // TODO add your handling code here:
         SimulationView simulation = new SimulationView();
-        simulation.setLocationRelativeTo(null);
         simulation.setVisible(true);
         dispose();
     }//GEN-LAST:event_startActionPerformed

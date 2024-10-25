@@ -15,6 +15,7 @@ public class SimulationView extends javax.swing.JFrame {
      */
     public SimulationView() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

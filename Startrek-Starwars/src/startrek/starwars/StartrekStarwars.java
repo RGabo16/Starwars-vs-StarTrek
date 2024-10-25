@@ -20,7 +20,6 @@ public class StartrekStarwars extends Thread{
         // TODO code application logic here
         
         PrincipalView main = new PrincipalView();
-        main.setLocationRelativeTo(null);
         main.setVisible(true);
         
         
