@@ -4,20 +4,22 @@
  */
 package primitives;
 
+import startrek.starwars.Personaje;
+
 /**
  *
  * @author Luriannys Junco
  */
 public class Nodo {
-    private Object element;
+    private Personaje element;
     private Nodo pNext;
 
-    public Nodo(Object element, Nodo pNext) {
+    public Nodo(Personaje element, Nodo pNext) {
         this.element = element;
         this.pNext = pNext;
     }
 
-    public Nodo(Object element) {
+    public Nodo(Personaje element) {
         this.element = element;
         this.pNext = null;
     }
@@ -25,14 +27,14 @@ public class Nodo {
     /**
      * @return the element
      */
-    public Object getElement() {
+    public Personaje getElement() {
         return element;
     }
 
     /**
      * @param element the element to set
      */
-    public void setElement(Object element) {
+    public void setElement(Personaje element) {
         this.element = element;
     }
 

@@ -9,28 +9,35 @@ import primitives.*;
  * @author rgabr
  */
 public class Administrador {
-    Cola cola;//donde se guardan los pj
-    Cola cola1;
-    int ciclos; //cada 2 ciclos agrega dos personajes a sus respectivas colas
 
-    public Administrador(Cola cola,Cola cola1, int ciclos) {
-        this.cola = cola;
-        this.cola1 = cola1;
-        this.ciclos = ciclos;
+    int ciclos; //cada 2 ciclos agrega dos personajes a sus respectivas colas
+    Cola cola1SW;
+    Cola cola1ST;
+    Cola cola2SW;
+    Cola cola2ST;
+    Cola cola3SW;
+    Cola cola3ST;
+    Cola colaRSW;
+    Cola colaRST;
+    Lista listasw;
+    Lista listast;
+
+    public Administrador(Lista sw,Lista st) {
+        this.listasw=sw;
+        this.listast=st;
     }
     public void Nuevospj(){
         //toma dos pj y los mete en sus colas
+        if (ciclos ==2){
+          int numsw=this.getListasw().getpFirst().getElement().getPrioridad();
+          if (numsw==1){
+              this.getCola1ST().queue(this.getListasw().getpFirst());
+              //encolar en prio1 de sw
+          }
+        }
     }
     public void Revision(){
         //80% de si entran o no 
-    }
-
-    public Cola getCola() {
-        return cola;
-    }
-
-    public void setCola(Cola cola) {
-        this.cola = cola;
     }
 
     public int getCiclos() {
@@ -39,6 +46,86 @@ public class Administrador {
 
     public void setCiclos(int ciclos) {
         this.ciclos = ciclos;
+    }
+
+    public Cola getCola1SW() {
+        return cola1SW;
+    }
+
+    public void setCola1SW(Cola cola1SW) {
+        this.cola1SW = cola1SW;
+    }
+
+    public Cola getCola1ST() {
+        return cola1ST;
+    }
+
+    public void setCola1ST(Cola cola1ST) {
+        this.cola1ST = cola1ST;
+    }
+
+    public Cola getCola2SW() {
+        return cola2SW;
+    }
+
+    public void setCola2SW(Cola cola2SW) {
+        this.cola2SW = cola2SW;
+    }
+
+    public Cola getCola2ST() {
+        return cola2ST;
+    }
+
+    public void setCola2ST(Cola cola2ST) {
+        this.cola2ST = cola2ST;
+    }
+
+    public Cola getCola3SW() {
+        return cola3SW;
+    }
+
+    public void setCola3SW(Cola cola3SW) {
+        this.cola3SW = cola3SW;
+    }
+
+    public Cola getCola3ST() {
+        return cola3ST;
+    }
+
+    public void setCola3ST(Cola cola3ST) {
+        this.cola3ST = cola3ST;
+    }
+
+    public Cola getColaRSW() {
+        return colaRSW;
+    }
+
+    public void setColaRSW(Cola colaRSW) {
+        this.colaRSW = colaRSW;
+    }
+
+    public Cola getColaRST() {
+        return colaRST;
+    }
+
+    public void setColaRST(Cola colaRST) {
+        this.colaRST = colaRST;
+    }
+
+    public Lista getListasw() {
+        return listasw;
+    }
+
+    public void setListasw(Lista listasw) {
+        this.listasw = listasw;
+    }
+
+    public Lista getListast() {
+        return listast;
+    }
+
+    public void setListast(Lista listast) {
+        this.listast = listast;
     }
     
 }

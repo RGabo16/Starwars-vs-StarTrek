@@ -13,16 +13,18 @@ import primitives.*;
  * @author rgabr
  */
 public class IA extends Thread {
-    Personaje pj1;
-    Personaje pj2;
+    Nodo pj1;
+    Nodo pj2;
     String resultado;
     Lista lista;
     String estado;
     double tiempo;
     Administrador admin;
+    Lista listaWin;
+    
     
 
-    public IA(Personaje pj1, Personaje pj2 ,double tiempo, Administrador admin){
+    public IA(Nodo pj1, Nodo pj2 ,double tiempo, Administrador admin){
         this.pj1 = pj1;
         this.pj2 = pj2;
         this.tiempo=tiempo;
@@ -36,9 +38,9 @@ public class IA extends Thread {
         int puntajePj2 = 0;
         
         // Comparar habilidad
-        if (this.getPj1().getHabilidad() > this.getPj2().getHabilidad()){
+        if (this.getPj1().getElement().getHabilidad() > this.getPj2().getElement().getHabilidad()){
             puntajePj1++;
-        } else if (this.getPj1().getHabilidad() < this.getPj2().getHabilidad()){
+        } else if (this.getPj1().getElement().getHabilidad() < this.getPj2().getElement().getHabilidad()){
             puntajePj2++;
         } else{
             puntajePj1++;
@@ -46,9 +48,9 @@ public class IA extends Thread {
         }
         
         // Comparar agilidad
-        if (this.getPj1().getAgilidad() > this.getPj2().getAgilidad()){
+        if (this.getPj1().getElement().getAgilidad() > this.getPj2().getElement().getAgilidad()){
             puntajePj1++;
-        } else if (this.getPj1().getAgilidad() < this.getPj2().getAgilidad()){
+        } else if (this.getPj1().getElement().getAgilidad() < this.getPj2().getElement().getAgilidad()){
             puntajePj2++;
         } else {
             puntajePj1++;
@@ -56,9 +58,9 @@ public class IA extends Thread {
         }
         
         // Comparar fuerza
-        if (this.getPj1().getFuerza() > this.getPj2().getFuerza()){
+        if (this.getPj1().getElement().getFuerza() > this.getPj2().getElement().getFuerza()){
             puntajePj1++;
-        } else if (this.getPj1().getFuerza() < this.getPj2().getFuerza()) {
+        } else if (this.getPj1().getElement().getFuerza() < this.getPj2().getElement().getFuerza()) {
             puntajePj2++;
         } else {
             puntajePj1++;
@@ -66,9 +68,9 @@ public class IA extends Thread {
         }
         
         // Comparar vida
-        if (this.getPj1().getVida() > this.getPj2().getVida()){
+        if (this.getPj1().getElement().getVida() > this.getPj2().getElement().getVida()){
             puntajePj1++;
-        } else if (this.getPj1().getVida() < this.getPj2().getVida()) {
+        } else if (this.getPj1().getElement().getVida() < this.getPj2().getElement().getVida()) {
             puntajePj2++;
         } else {
             puntajePj1++;
@@ -77,24 +79,29 @@ public class IA extends Thread {
         
         // Comparar puntajes finales
         if (puntajePj1 > puntajePj2){
-            System.out.println("Jugador " +this.getPj1().getNombre()+ " gana");
-            this.getPj1().getSaga().setPuntos(this.getPj1().getSaga().getPuntos()+1);
+            System.out.println("Jugador " +this.getPj1().getElement().getNombre()+ " gana");
+            this.getListaWin().addAtTheStart(pj1);
+           
+            this.getPj1().getElement().getSaga().setPuntos(this.getPj1().getElement().getSaga().getPuntos()+1);
         } else if (puntajePj1 == puntajePj2) {
             int decision = (int) (Math.random() * 10 + 1);
             if (decision <= 5){
-                System.out.println("Jugador " +this.getPj1().getNombre()+ " gana");
-                this.getPj1().getSaga().setPuntos(this.getPj1().getSaga().getPuntos()+1);
+                System.out.println("Jugador " +this.getPj1().getElement().getNombre()+ " gana");
+                this.getListaWin().addAtTheStart(pj1);
+                this.getPj1().getElement().getSaga().setPuntos(this.getPj1().getElement().getSaga().getPuntos()+1);
 
             } else {
-                System.out.println("Jugador " +this.getPj2().getNombre()+ " gana");
-                this.getPj2().getSaga().setPuntos(this.getPj2().getSaga().getPuntos()+1);
+                System.out.println("Jugador " +this.getPj2().getElement().getNombre()+ " gana");
+                this.getListaWin().addAtTheStart(pj2);
+                this.getPj2().getElement().getSaga().setPuntos(this.getPj2().getElement().getSaga().getPuntos()+1);
             }            
         } else {
-            System.out.println("Jugador " +this.getPj2().getNombre()+ " gana");
-            this.getPj2().getSaga().setPuntos(this.getPj2().getSaga().getPuntos()+1);
+            System.out.println("Jugador " +this.getPj2().getElement().getNombre()+ " gana");
+            this.getListaWin().addAtTheStart(pj2);
+            this.getPj2().getElement().getSaga().setPuntos(this.getPj2().getElement().getSaga().getPuntos()+1);
         } 
         System.out.println("P1: "+puntajePj1+ " P2: "+ puntajePj2);
-        System.out.println("SW: "+this.getPj1().getSaga().getPuntos()+" ST: "+this.getPj2().getSaga().getPuntos());//siempre el pj2 es de ST
+        System.out.println("SW: "+this.getPj1().getElement().getSaga().getPuntos()+" ST: "+this.getPj2().getElement().getSaga().getPuntos());//siempre el pj2 es de ST
     }
     //hilo para la espera y semaforo
     public void startIA(){
@@ -107,34 +114,40 @@ public class IA extends Thread {
             }
         float num=(float)(Math.random()*10+1);
         if (num <=4.0){
-            //40% de que alguien gane
-            
-            
+            //40% de que alguien gane 
             this.DecidirGanador();
         }else if (num<=6.7){
             this.resultado="Empate";
             System.out.println(this.getResultado());
+            this.getAdmin().getCola1SW().queue(pj1);
+            this.getAdmin().getCola1ST().queue(pj2);
             
             
         }else{
             this.resultado="Pelea cancelada";
             System.out.println(this.getResultado());
+            this.getAdmin().getColaRSW().queue(pj1);
+            this.getAdmin().getColaRST().queue(pj2);
         }
         System.out.println("num: " +num);
+        this.getAdmin().setCiclos(this.getAdmin().getCiclos()+1);
+        if (this.getAdmin().getCiclos()==3){
+            this.getAdmin().setCiclos(0);
+        }
     }
-    public Personaje getPj1() {
+    public Nodo getPj1() {
         return pj1;
     }
 
-    public void setPj1(Personaje pj1) {
+    public void setPj1(Nodo pj1) {
         this.pj1 = pj1;
     }
 
-    public Personaje getPj2() {
+    public Nodo getPj2() {
         return pj2;
     }
 
-    public void setPj2(Personaje pj2) {
+    public void setPj2(Nodo pj2) {
         this.pj2 = pj2;
     }
 
@@ -161,6 +174,32 @@ public class IA extends Thread {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public double getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(double tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    public Administrador getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Administrador admin) {
+        this.admin = admin;
+    }
+
+    public Lista getListaWin() {
+        return listaWin;
+    }
+
+    public void setListaWin(Lista listaWin) {
+        this.listaWin = listaWin;
+    }
+    
+ 
     
    
 }
