@@ -25,30 +25,53 @@ public class StartrekStarwars extends Thread{
         IA ia;
         Thread t0;
         Saga sw, st;
+        //se crean las sagas
         sw= new Saga("Star Wars");
         st = new Saga("Star Trek");
-        Personaje pj, pjs;
-        pj = new Personaje(1,"A",sw);
-        pj.DefinirCalidad();
-        pjs = new Personaje(2, "B", st);
-        pjs.DefinirCalidad();
+        //timepo de cada segundo
         double tiempo=0.5;
-        Nodo n1= new Nodo(pj);
-        Nodo n2= new Nodo(pjs);
-        Cola SW1= new Cola();
-        SW1.queue(n1);
-        Cola SW2= new Cola();
-        Cola SW3= new Cola();
-        Cola SWR= new Cola();
+        //los personajes vienen del txt
+        Lista listasw= new Lista();
+        Lista listast= new Lista();
         
-        Cola ST1= new Cola();
-        ST1.queue(n2);
-        Cola ST2= new Cola();
-        Cola ST3= new Cola();
-        Cola STR= new Cola();
+        Personaje pjw1,pjw2,pjw3,pjt1,pjt2,pjt3;
+        pjw1 = new Personaje(1,"A",sw);
+        pjw1.DefinirCalidad();
+        pjt1 = new Personaje(2, "B", st);
+        pjt1.DefinirCalidad();
+       
+        Nodo n1= new Nodo(pjw1);
+        Nodo n2= new Nodo(pjt1);
         
-        Administrador admin=new Administrador(SW1,ST1,2);
-        ia = new IA(pj, pjs,tiempo,admin);
+        pjw2 = new Personaje(1,"A",sw);
+        pjw2.DefinirCalidad();
+        pjt2 = new Personaje(2, "B", st);
+        pjt2.DefinirCalidad();
+        
+        Nodo n3= new Nodo(pjw2);
+        Nodo n4= new Nodo(pjt2);
+        
+        pjw3 = new Personaje(1,"A",sw);
+        pjw3.DefinirCalidad();
+        pjt3 = new Personaje(2, "B", st);
+        pjt3.DefinirCalidad();
+        
+        Nodo n5= new Nodo(pjw3);
+        Nodo n6= new Nodo(pjt3);
+        
+        //for (int i=1;i<6;i++){
+            listasw.addAtTheStart(n1);
+            listast.addAtTheStart(n2);
+            listasw.addAtTheStart(n3);
+            listast.addAtTheStart(n4);
+            listasw.addAtTheStart(n5);
+            listast.addAtTheStart(n6);
+       // }
+       
+       
+        
+        Administrador admin=new Administrador(listasw,listast);
+        ia = new IA(n1,n2,tiempo,admin);
         ia.startIA();
         
         PrincipalView main = new PrincipalView();
