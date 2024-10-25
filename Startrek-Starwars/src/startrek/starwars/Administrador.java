@@ -10,10 +10,12 @@ import primitives.*;
  */
 public class Administrador {
     Cola cola;//donde se guardan los pj
+    Cola cola1;
     int ciclos; //cada 2 ciclos agrega dos personajes a sus respectivas colas
 
-    public Administrador(Cola cola, int ciclos) {
+    public Administrador(Cola cola,Cola cola1, int ciclos) {
         this.cola = cola;
+        this.cola1 = cola1;
         this.ciclos = ciclos;
     }
     public void Nuevospj(){

@@ -19,9 +19,8 @@ public class StartrekStarwars extends Thread{
     public static void main(String[] args) {
         // TODO code application logic here
         
-        PrincipalView main = new PrincipalView();
-        main.setVisible(true);
-        
+
+
         
         IA ia;
         Thread t0;
@@ -34,11 +33,29 @@ public class StartrekStarwars extends Thread{
         pjs = new Personaje(2, "B", st);
         pjs.DefinirCalidad();
         double tiempo=0.5;
-        Cola prio1= new Cola();
-        Administrador admin=new Administrador(prio1,2);
-        t0=new Thread();
+        Nodo n1= new Nodo(pj);
+        Nodo n2= new Nodo(pjs);
+        Cola SW1= new Cola();
+        SW1.queue(n1);
+        Cola SW2= new Cola();
+        Cola SW3= new Cola();
+        Cola SWR= new Cola();
+        
+        Cola ST1= new Cola();
+        ST1.queue(n2);
+        Cola ST2= new Cola();
+        Cola ST3= new Cola();
+        Cola STR= new Cola();
+        
+        Administrador admin=new Administrador(SW1,ST1,2);
         ia = new IA(pj, pjs,tiempo,admin);
         ia.startIA();
+        
+        PrincipalView main = new PrincipalView();
+        main.setVisible(true);
+        
+        
+      
        
     }
     
