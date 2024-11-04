@@ -24,9 +24,8 @@ public class IA extends Thread {
     
     
 
-    public IA(Nodo pj1, Nodo pj2 ,double tiempo, Administrador admin){
-        this.pj1 = pj1;
-        this.pj2 = pj2;
+    public IA(double tiempo, Administrador admin){
+        
         this.tiempo=tiempo;
         this.admin=admin;
         
@@ -36,6 +35,7 @@ public class IA extends Thread {
     public void DecidirGanador(){
         int puntajePj1 = 0;
         int puntajePj2 = 0;
+        this.setEstado("Seleccionando Ganador");
         
         // Comparar habilidad
         if (this.getPj1().getElement().getHabilidad() > this.getPj2().getElement().getHabilidad()){
@@ -105,9 +105,21 @@ public class IA extends Thread {
     }
     //hilo para la espera y semaforo
     public void startIA(){
-     
+        
+        if (this.getAdmin().getCola1ST().getSize()>0 && this.getAdmin().getCola1SW().getSize()>0){
+            this.pj1 = this.getAdmin().getCola1ST().getHead();
+            this.pj2 = this.getAdmin().getCola1SW().getHead();
+        
+        }else if(this.getAdmin().getCola2ST().getSize()>0 && this.getAdmin().getCola2SW().getSize()>0){
+            this.pj1 = this.getAdmin().getCola2ST().getHead();
+            this.pj2 = this.getAdmin().getCola2SW().getHead();
+        }else{
+            this.pj1 = this.getAdmin().getCola3ST().getHead();
+            this.pj2 = this.getAdmin().getCola3SW().getHead();
+        }
+        
         try {
-            
+            this.setEstado("Decidiendo...");
               Thread.sleep(Duration.ofSeconds((long)(tiempo*10)));
             } catch (InterruptedException ex) {
                 Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
