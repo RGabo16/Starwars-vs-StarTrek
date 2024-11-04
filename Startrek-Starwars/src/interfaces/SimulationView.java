@@ -4,11 +4,294 @@
  */
 package interfaces;
 
+import javax.accessibility.AccessibleContext;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 /**
  *
  * @author Luriannys Junco
  */
 public class SimulationView extends javax.swing.JFrame {
+
+    public JLabel getFondo() {
+        return fondo;
+    }
+
+    public void setFondo(JLabel fondo) {
+        this.fondo = fondo;
+    }
+
+    public JLabel getHabilidadesPj1() {
+        return habilidadesPj1;
+    }
+
+    public void setHabilidadesPj1(JLabel habilidadesPj1) {
+        this.habilidadesPj1 = habilidadesPj1;
+    }
+
+    public JLabel getHabilidadesPj2() {
+        return habilidadesPj2;
+    }
+
+    public void setHabilidadesPj2(JLabel habilidadesPj2) {
+        this.habilidadesPj2 = habilidadesPj2;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public void setjLabel6(JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    public JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    public void setjLabel7(JLabel jLabel7) {
+        this.jLabel7 = jLabel7;
+    }
+
+    public JLabel getjLabel8() {
+        return jLabel8;
+    }
+
+    public void setjLabel8(JLabel jLabel8) {
+        this.jLabel8 = jLabel8;
+    }
+
+    public JLabel getjLabel9() {
+        return jLabel9;
+    }
+
+    public void setjLabel9(JLabel jLabel9) {
+        this.jLabel9 = jLabel9;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+
+    public JScrollPane getjScrollPane3() {
+        return jScrollPane3;
+    }
+
+    public void setjScrollPane3(JScrollPane jScrollPane3) {
+        this.jScrollPane3 = jScrollPane3;
+    }
+
+    public JScrollPane getjScrollPane4() {
+        return jScrollPane4;
+    }
+
+    public void setjScrollPane4(JScrollPane jScrollPane4) {
+        this.jScrollPane4 = jScrollPane4;
+    }
+
+    public JScrollPane getjScrollPane5() {
+        return jScrollPane5;
+    }
+
+    public void setjScrollPane5(JScrollPane jScrollPane5) {
+        this.jScrollPane5 = jScrollPane5;
+    }
+
+    public JScrollPane getjScrollPane6() {
+        return jScrollPane6;
+    }
+
+    public void setjScrollPane6(JScrollPane jScrollPane6) {
+        this.jScrollPane6 = jScrollPane6;
+    }
+
+    public JScrollPane getjScrollPane7() {
+        return jScrollPane7;
+    }
+
+    public void setjScrollPane7(JScrollPane jScrollPane7) {
+        this.jScrollPane7 = jScrollPane7;
+    }
+
+    public JScrollPane getjScrollPane8() {
+        return jScrollPane8;
+    }
+
+    public void setjScrollPane8(JScrollPane jScrollPane8) {
+        this.jScrollPane8 = jScrollPane8;
+    }
+
+    public JLabel getPj1() {
+        return pj1;
+    }
+
+    public void setPj1(JLabel pj1) {
+        this.pj1 = pj1;
+    }
+
+    public JLabel getPj2() {
+        return pj2;
+    }
+
+    public void setPj2(JLabel pj2) {
+        this.pj2 = pj2;
+    }
+
+    public JPanel getPrincipalView() {
+        return principalView;
+    }
+
+    public void setPrincipalView(JPanel principalView) {
+        this.principalView = principalView;
+    }
+
+    public JLabel getPuntajeSimulacion() {
+        return puntajeSimulacion;
+    }
+
+    public void setPuntajeSimulacion(JLabel puntajeSimulacion) {
+        this.puntajeSimulacion = puntajeSimulacion;
+    }
+
+    public JList<String> getStCola1() {
+        return stCola1;
+    }
+
+    public void setStCola1(JList<String> stCola1) {
+        this.stCola1 = stCola1;
+    }
+
+    public JList<String> getStCola2() {
+        return stCola2;
+    }
+
+    public void setStCola2(JList<String> stCola2) {
+        this.stCola2 = stCola2;
+    }
+
+    public JList<String> getStCola3() {
+        return stCola3;
+    }
+
+    public void setStCola3(JList<String> stCola3) {
+        this.stCola3 = stCola3;
+    }
+
+    public JList<String> getStColaRefuerzo() {
+        return stColaRefuerzo;
+    }
+
+    public void setStColaRefuerzo(JList<String> stColaRefuerzo) {
+        this.stColaRefuerzo = stColaRefuerzo;
+    }
+
+    public JList<String> getSwCola1() {
+        return swCola1;
+    }
+
+    public void setSwCola1(JList<String> swCola1) {
+        this.swCola1 = swCola1;
+    }
+
+    public JList<String> getSwCola2() {
+        return swCola2;
+    }
+
+    public void setSwCola2(JList<String> swCola2) {
+        this.swCola2 = swCola2;
+    }
+
+    public JList<String> getSwCola3() {
+        return swCola3;
+    }
+
+    public void setSwCola3(JList<String> swCola3) {
+        this.swCola3 = swCola3;
+    }
+
+    public JList<String> getSwColaRefuerzo() {
+        return swColaRefuerzo;
+    }
+
+    public void setSwColaRefuerzo(JList<String> swColaRefuerzo) {
+        this.swColaRefuerzo = swColaRefuerzo;
+    }
+
+    public JComboBox<String> getTiempoSegundo() {
+        return tiempoSegundo;
+    }
+
+    public void setTiempoSegundo(JComboBox<String> tiempoSegundo) {
+        this.tiempoSegundo = tiempoSegundo;
+    }
+
+    public void setTitle(JLabel title) {
+        this.title = title;
+    }
+
+    public AccessibleContext getAccessibleContext() {
+        return accessibleContext;
+    }
+
+    public void setAccessibleContext(AccessibleContext accessibleContext) {
+        this.accessibleContext = accessibleContext;
+    }
 
     /**
      * Creates new form PrincipalView

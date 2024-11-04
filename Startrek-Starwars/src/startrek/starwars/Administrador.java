@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package startrek.starwars;
+import javax.swing.DefaultListModel;
 import primitives.*;
 /**
  *
@@ -25,6 +26,10 @@ public class Administrador {
     public Administrador(Lista sw,Lista st) {
         this.listasw=sw;
         this.listast=st;
+    }
+
+    public Administrador() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     public void Nuevospj(){
         //toma dos pj y los mete en sus colas
@@ -128,4 +133,21 @@ public class Administrador {
         this.listast = listast;
     }
     
+    public DefaultListModel getModeloNames(Cola cola){
+        
+        DefaultListModel modelo = new DefaultListModel();
+            
+            Nodo head = cola.getHead();
+            String headName = head.getElement().getNombre();
+            modelo.addElement(head);
+            Nodo elemento = head.getpNext();
+            String elementoName = elemento.getElement().getNombre();
+            modelo.addElement(elementoName);
+            for(int i = 2; i<= cola.getSize(); i++){
+                elemento = elemento.getpNext();
+                elementoName = elemento.getElement().getNombre();
+                modelo.addElement(elementoName);
+            }
+            return modelo;
+    }
 }

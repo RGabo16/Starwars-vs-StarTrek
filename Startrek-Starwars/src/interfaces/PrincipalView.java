@@ -4,6 +4,9 @@
  */
 package interfaces;
 
+import startrek.starwars.Administrador;
+import startrek.starwars.StartrekStarwars;
+
 /**
  *
  * @author Luriannys Junco
@@ -67,8 +70,12 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         // TODO add your handling code here:
+                
         SimulationView simulation = new SimulationView();
-        simulation.setVisible(true);
+        //simulation.setVisible(true);
+        Administrador admin = new Administrador();
+        
+        Yes yes = new Yes(simulation, admin);
         dispose();
     }//GEN-LAST:event_startActionPerformed
 

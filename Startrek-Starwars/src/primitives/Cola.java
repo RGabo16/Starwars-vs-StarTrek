@@ -4,6 +4,8 @@
  */
 package primitives;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Luriannys Junco
@@ -126,5 +128,5 @@ public class Cola {
         this.size = size;
     }
     
-    
+   
 }
