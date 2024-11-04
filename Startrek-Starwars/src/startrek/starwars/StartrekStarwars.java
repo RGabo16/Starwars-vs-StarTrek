@@ -68,11 +68,15 @@ public class StartrekStarwars extends Thread{
             listast.addAtTheStart(n6);
        // }
        
-       
+       Administrador admin=new Administrador(listasw,listast);
+       ia = new IA(tiempo,admin);
         
-        Administrador admin=new Administrador(listasw,listast);
-        ia = new IA(n1,n2,tiempo,admin);
-        ia.startIA();
+        for (int i=0;i>3;i++){
+            ia.startIA();
+        }
+        
+        
+        
         
         PrincipalView main = new PrincipalView();
         main.setVisible(true);

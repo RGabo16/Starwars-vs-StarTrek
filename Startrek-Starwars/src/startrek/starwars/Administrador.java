@@ -28,16 +28,52 @@ public class Administrador {
     }
     public void Nuevospj(){
         //toma dos pj y los mete en sus colas
-        if (ciclos ==2){
+        
           int numsw=this.getListasw().getpFirst().getElement().getPrioridad();
-          if (numsw==1){
-              this.getCola1ST().queue(this.getListasw().getpFirst());
-              //encolar en prio1 de sw
-          }
-        }
+            switch (numsw) {
+                case 1 ->{
+                    this.getCola1SW().queue(this.getListasw().getpFirst());
+                    this.getListasw().DeleteAtTheStart();
+                    //encolar en prio1 de sw
+                }
+                case 2 -> {
+                    this.getCola2SW().queue(this.getListasw().getpFirst());
+                    this.getListasw().DeleteAtTheStart();
+                }
+                default -> {
+                    this.getCola3SW().queue(this.getListasw().getpFirst());
+                    this.getListasw().DeleteAtTheStart();
+                }
+            }
+            int numst=this.getListast().getpFirst().getElement().getPrioridad();
+            switch (numst) {
+                case 1 ->{
+                    this.getCola1ST().queue(this.getListast().getpFirst());
+                    this.getListast().DeleteAtTheStart();
+                    //encolar en prio1 de sw
+                }
+                case 2 -> {
+                    this.getCola2ST().queue(this.getListast().getpFirst());
+                    this.getListast().DeleteAtTheStart();
+                }
+                default -> {
+                    this.getCola3ST().queue(this.getListast().getpFirst());
+                    this.getListast().DeleteAtTheStart();
+                }
+            }
+        
     }
     public void Revision(){
         //80% de si entran o no 
+        
+        if (ciclos==2){
+          int numrandom=(int)(Math.random()*10+1);
+          if (numrandom>2){
+              this.Nuevospj();
+          }
+            
+        }
+        
     }
 
     public int getCiclos() {
