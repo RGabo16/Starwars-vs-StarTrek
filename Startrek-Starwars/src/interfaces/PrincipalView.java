@@ -76,6 +76,7 @@ public class PrincipalView extends javax.swing.JFrame {
         Administrador admin = new Administrador();
         
         Yes yes = new Yes(simulation, admin);
+        yes.run();
         simulation.setVisible(true);
         dispose();
     }//GEN-LAST:event_startActionPerformed

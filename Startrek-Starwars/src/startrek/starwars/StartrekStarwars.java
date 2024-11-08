@@ -5,6 +5,8 @@
 package startrek.starwars;
 
 import interfaces.PrincipalView;
+import interfaces.SimulationView;
+import interfaces.Yes;
 import primitives.*;
 
 /**
@@ -19,8 +21,10 @@ public class StartrekStarwars extends Thread{
     public static void main(String[] args) {
         // TODO code application logic here
         
+       // PrincipalView main = new PrincipalView();
+        //main.setVisible(true);
 
-
+        
         
         IA ia;
         Thread t0;
@@ -33,6 +37,9 @@ public class StartrekStarwars extends Thread{
         //los personajes vienen del txt
         Lista listasw= new Lista();
         Lista listast= new Lista();
+        Administrador admin = new Administrador(listasw,listast);
+         
+         
         
         Personaje pjw1,pjw2,pjw3,pjt1,pjt2,pjt3;
         pjw1 = new Personaje(1,"A",sw);
@@ -72,23 +79,27 @@ public class StartrekStarwars extends Thread{
             listast.addAtTheStart(n6);
        // }
        
-       Administrador admin=new Administrador(listasw,listast);
+      
        ia = new IA(tiempo,admin);
        
        admin.Nuevospj();
        admin.Nuevospj();
        admin.Nuevospj();
-       
+       //INTERFAZ
+        SimulationView simulation = new SimulationView();
+        Yes yes = new Yes(simulation, admin);
+        yes.start();
+        simulation.setVisible(true);
         for (int i=0;i<3;i++){
             
         ia.startIA();
+        
         }
         
         
         
         
-        //PrincipalView main = new PrincipalView();
-       // main.setVisible(true);
+        
         
         
       

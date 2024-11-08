@@ -175,60 +175,91 @@ public class Administrador {
         
         DefaultListModel modelo = new DefaultListModel();
         
-        Nodo head = cola.getHead();
-        Nodo elemento = head.getpNext();        
-        
-        if ("nombre".equals(tipo)){
-            String headName = head.getElement().getNombre();
-            modelo.addElement(headName);
-            String elementoName = elemento.getElement().getNombre();
-            modelo.addElement(elementoName);
-            for(int i = 2; i<= cola.getSize(); i++){
-                elemento = elemento.getpNext();
-                elementoName = elemento.getElement().getNombre();
-                modelo.addElement(elementoName);
+        // Verifica que la cola no este vacia
+        if (!cola.isEmpty()){
+            Nodo elemento = cola.getHead();
+            
+            //Atributo Nombre
+            if ("nombre".equals(tipo)){
+                    String elementoName = elemento.getElement().getNombre();
+                    modelo.addElement(elementoName);
+                
+                // Verifica que haya mas elementos
+                while (elemento.getpNext() != null){
+                    elemento = elemento.getpNext();
+                    elementoName = elemento.getElement().getNombre();
+                    modelo.addElement(elementoName);
+                }
             }
-        } if ("agilidad".equals(tipo)){
-            int headAgilidad = head.getElement().getAgilidad();
-            modelo.addElement(headAgilidad);
-            int elementoAgilidad = elemento.getElement().getAgilidad();
-            modelo.addElement(elementoAgilidad);
-            for(int i = 2; i<= cola.getSize(); i++){
-                elemento = elemento.getpNext();
-                elementoAgilidad = elemento.getElement().getAgilidad();
-                modelo.addElement(elementoAgilidad);
+            
+            //Atributo Agilidad
+            if ("agilidad".equals(tipo)){
+                    int elementoAgilidad = elemento.getElement().getAgilidad();
+                    modelo.addElement(elementoAgilidad);
+                
+                // Verifica que haya mas elementos
+                while (elemento.getpNext() != null){
+                    elemento = elemento.getpNext();
+                    elementoAgilidad = elemento.getElement().getAgilidad();
+                    modelo.addElement(elementoAgilidad);
+                }
             }
-        } if ("habilidad".equals(tipo)){
-            int headHabilidad = head.getElement().getHabilidad();
-            modelo.addElement(headHabilidad);
-            int elementoHabilidad = elemento.getElement().getHabilidad();
-            modelo.addElement(elementoHabilidad);
-            for(int i = 2; i<= cola.getSize(); i++){
-                elemento = elemento.getpNext();
-                elementoHabilidad = elemento.getElement().getHabilidad();
+
+            //Atributo Habilidad
+            if ("habilidad".equals(tipo)){
+                int elementoHabilidad = elemento.getElement().getHabilidad();
                 modelo.addElement(elementoHabilidad);
+                
+                // Verifica que haya mas elementos
+                while (elemento.getpNext() != null){
+                    elemento = elemento.getpNext();
+                    elementoHabilidad = elemento.getElement().getHabilidad();
+                    modelo.addElement(elementoHabilidad);
+                }
             }
-        } if ("fuerza".equals(tipo)){
-            int headFuerza = head.getElement().getFuerza();
-            modelo.addElement(headFuerza);
-            int elementoFuerza = elemento.getElement().getFuerza();
-            modelo.addElement(elementoFuerza);
-            for(int i = 2; i<= cola.getSize(); i++){
-                elemento = elemento.getpNext();
-                elementoFuerza = elemento.getElement().getFuerza();
+
+            //Atributo Fuerza
+            if ("fuerza".equals(tipo)){
+                int elementoFuerza = elemento.getElement().getFuerza();
                 modelo.addElement(elementoFuerza);
+
+               // Verifica que haya mas elementos
+                while (elemento.getpNext() != null){
+                    elemento = elemento.getpNext();
+                    elementoFuerza = elemento.getElement().getFuerza();
+                    modelo.addElement(elementoFuerza);
+                }
+            
             }
-        } if ("vida".equals(tipo)){
-            int headVida = head.getElement().getVida();
-            modelo.addElement(headVida);
-            int elementoVida = elemento.getElement().getVida();
-            modelo.addElement(elementoVida);
-            for(int i = 2; i<= cola.getSize(); i++){
-                elemento = elemento.getpNext();
-                elementoVida = elemento.getElement().getVida();
+
+            //Atributo Vida
+            if ("vida".equals(tipo)){
+                int elementoVida = elemento.getElement().getVida();
                 modelo.addElement(elementoVida);
-            }    
-        }          
+                
+                // Verifica que haya mas elementos
+                while (elemento.getpNext() != null){
+                    elemento = elemento.getpNext();
+                    elementoVida = elemento.getElement().getVida();
+                    modelo.addElement(elementoVida);
+                }
+            }
+        }      
         return modelo;
+    }
+    
+    public void contadorPersonaje (Cola cola){
+                
+        // Verifica que la cola no este vacia
+        if (!cola.isEmpty()){
+            Nodo elemento = cola.getHead();     
+            elemento.getElement().setContador(elemento.getElement().getContador() + 1);
+
+            // Verifica que haya mas elementos
+            while (elemento.getpNext() != null){
+                elemento = elemento.getpNext();
+                elemento.getElement().setContador(elemento.getElement().getContador() + 1);
+            }
+        }
     }
 }

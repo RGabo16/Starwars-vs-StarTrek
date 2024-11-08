@@ -6,6 +6,7 @@ package interfaces;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import primitives.Cola;
 //import primitives.Nodo;
 import startrek.starwars.Administrador;
 
@@ -30,10 +31,10 @@ public class Yes extends Thread{
             // Cola SW 1
             JList listaSW1 = new JList();
             DefaultListModel modeloSW1 = new DefaultListModel();
-            modeloSW1 = admin.getAtributo(admin.getCola1SW(), "nombre");
+            Cola cola = admin.getCola1SW();
+            modeloSW1 = admin.getAtributo(cola, "nombre");
             listaSW1.setModel(modeloSW1);
             simulation.setSwCola1(listaSW1);
-            
             // Cola SW 2
             JList listaSW2 = new JList();
             DefaultListModel modeloSW2 = new DefaultListModel();
