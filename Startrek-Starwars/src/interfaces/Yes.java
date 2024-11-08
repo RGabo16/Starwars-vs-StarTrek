@@ -6,7 +6,7 @@ package interfaces;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
-import primitives.Nodo;
+//import primitives.Nodo;
 import startrek.starwars.Administrador;
 
 /**
@@ -27,23 +27,47 @@ public class Yes extends Thread{
     public void run(){
     
         while(true){
+            // Cola SW 1
+            JList listaSW1 = new JList();
+            DefaultListModel modeloSW1 = new DefaultListModel();
+            modeloSW1 = admin.getAtributo(admin.getCola1SW(), "nombre");
+            listaSW1.setModel(modeloSW1);
+            simulation.setSwCola1(listaSW1);
             
-            JList lista1 = new JList();
-            DefaultListModel modelo = new DefaultListModel();
+            // Cola SW 2
+            JList listaSW2 = new JList();
+            DefaultListModel modeloSW2 = new DefaultListModel();
+            modeloSW2 = admin.getAtributo(admin.getCola2SW(), "nombre");
+            listaSW2.setModel(modeloSW2);
+            simulation.setSwCola1(listaSW2);
             
-            Nodo headSW1 = admin.getCola1SW().getHead();
-            String headSW1Name = headSW1.getElement().getNombre();
-            modelo.addElement(headSW1);
-            Nodo elemento = headSW1.getpNext();
-            String elementoName = elemento.getElement().getNombre();
-            modelo.addElement(elementoName);
-            for(int i = 2; i<= admin.getCola1SW().getSize(); i++){
-                elemento = elemento.getpNext();
-                elementoName = elemento.getElement().getNombre();
-                modelo.addElement(elementoName);
-            }
-            lista1.setModel(modelo);
-            simulation.setSwCola1(lista1);
+            // Cola SW 3
+            JList listaSW3 = new JList();
+            DefaultListModel modeloSW3 = new DefaultListModel();
+            modeloSW3 = admin.getAtributo(admin.getCola3SW(), "nombre");
+            listaSW3.setModel(modeloSW3);
+            simulation.setSwCola3(listaSW3);
+            
+            // Cola ST 1
+            JList listaST1 = new JList();
+            DefaultListModel modeloST1 = new DefaultListModel();
+            modeloST1 = admin.getAtributo(admin.getCola1ST(), "nombre");
+            listaST1.setModel(modeloST1);
+            simulation.setSwCola1(listaST1);
+            
+            // Cola ST 2
+            JList listaST2 = new JList();
+            DefaultListModel modeloST2 = new DefaultListModel();
+            modeloST2 = admin.getAtributo(admin.getCola2ST(), "nombre");
+            listaST2.setModel(modeloST2);
+            simulation.setSwCola1(listaST2);
+            
+            // Cola ST 3
+            JList listaST3 = new JList();
+            DefaultListModel modeloST3 = new DefaultListModel();
+            modeloST3 = admin.getAtributo(admin.getCola3ST(), "nombre");
+            listaST3.setModel(modeloST3);
+            simulation.setSwCola3(listaST3);
         }
     }
     
