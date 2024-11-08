@@ -20,7 +20,7 @@ public class IA extends Thread {
     String estado;
     double tiempo;
     Administrador admin;
-    Lista listaWin;
+    Lista listaWin = new Lista();
     
     
 
@@ -81,6 +81,7 @@ public class IA extends Thread {
         if (puntajePj1 > puntajePj2){
             System.out.println("Jugador " +this.getPj1().getElement().getNombre()+ " gana");
             this.getListaWin().addAtTheStart(pj1);
+            
            
             this.getPj1().getElement().getSaga().setPuntos(this.getPj1().getElement().getSaga().getPuntos()+1);
         } else if (puntajePj1 == puntajePj2) {
@@ -89,6 +90,7 @@ public class IA extends Thread {
                 System.out.println("Jugador " +this.getPj1().getElement().getNombre()+ " gana");
                 this.getListaWin().addAtTheStart(pj1);
                 this.getPj1().getElement().getSaga().setPuntos(this.getPj1().getElement().getSaga().getPuntos()+1);
+                
 
             } else {
                 System.out.println("Jugador " +this.getPj2().getElement().getNombre()+ " gana");
@@ -109,13 +111,20 @@ public class IA extends Thread {
         if (this.getAdmin().getCola1ST().getSize()>0 && this.getAdmin().getCola1SW().getSize()>0){
             this.pj1 = this.getAdmin().getCola1ST().getHead();
             this.pj2 = this.getAdmin().getCola1SW().getHead();
+            this.getAdmin().getCola1ST().dequeue();
+            this.getAdmin().getCola1SW().dequeue();
+            
         
         }else if(this.getAdmin().getCola2ST().getSize()>0 && this.getAdmin().getCola2SW().getSize()>0){
             this.pj1 = this.getAdmin().getCola2ST().getHead();
             this.pj2 = this.getAdmin().getCola2SW().getHead();
+            this.getAdmin().getCola2ST().dequeue();
+            this.getAdmin().getCola2SW().dequeue();
         }else{
             this.pj1 = this.getAdmin().getCola3ST().getHead();
             this.pj2 = this.getAdmin().getCola3SW().getHead();
+            this.getAdmin().getCola3ST().dequeue();
+            this.getAdmin().getCola3SW().dequeue();
         }
         
         try {

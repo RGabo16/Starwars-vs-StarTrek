@@ -39,7 +39,8 @@ public class StartrekStarwars extends Thread{
         pjw1.DefinirCalidad();
         pjt1 = new Personaje(2, "B", st);
         pjt1.DefinirCalidad();
-       
+       pjw1.setPrioridad(1);
+       pjt1.setPrioridad(1);
         Nodo n1= new Nodo(pjw1);
         Nodo n2= new Nodo(pjt1);
         
@@ -47,7 +48,8 @@ public class StartrekStarwars extends Thread{
         pjw2.DefinirCalidad();
         pjt2 = new Personaje(2, "B", st);
         pjt2.DefinirCalidad();
-        
+        pjw2.setPrioridad(2);
+        pjt2.setPrioridad(2);
         Nodo n3= new Nodo(pjw2);
         Nodo n4= new Nodo(pjt2);
         
@@ -55,6 +57,8 @@ public class StartrekStarwars extends Thread{
         pjw3.DefinirCalidad();
         pjt3 = new Personaje(2, "B", st);
         pjt3.DefinirCalidad();
+        pjw3.setPrioridad(3);
+        pjt3.setPrioridad(3);
         
         Nodo n5= new Nodo(pjw3);
         Nodo n6= new Nodo(pjt3);
@@ -70,16 +74,21 @@ public class StartrekStarwars extends Thread{
        
        Administrador admin=new Administrador(listasw,listast);
        ia = new IA(tiempo,admin);
-        
-        for (int i=0;i>3;i++){
-            ia.startIA();
+       
+       admin.Nuevospj();
+       admin.Nuevospj();
+       admin.Nuevospj();
+       
+        for (int i=0;i<3;i++){
+            
+        ia.startIA();
         }
         
         
         
         
-        PrincipalView main = new PrincipalView();
-        main.setVisible(true);
+        //PrincipalView main = new PrincipalView();
+       // main.setVisible(true);
         
         
       

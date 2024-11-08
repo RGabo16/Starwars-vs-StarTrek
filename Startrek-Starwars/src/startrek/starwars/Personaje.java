@@ -36,13 +36,13 @@ public class Personaje {
         fuerza
         */
         this.habilidad=(int)(Math.random()*10+1);
-        System.out.println("Habilidad: "+this.getHabilidad() );
+        //System.out.println("Habilidad: "+this.getHabilidad() );
         this.agilidad=(int)(Math.random()*10+1);
-        System.out.println("Agilidad: "+this.getAgilidad() );
+        //System.out.println("Agilidad: "+this.getAgilidad() );
         this.fuerza=(int)(Math.random()*10+1);
-        System.out.println("Fuerza: "+this.getFuerza() );
+        //System.out.println("Fuerza: "+this.getFuerza() );
         this.vida=(int)(Math.random()*10+1);
-        System.out.println("Vida: "+this.getVida());
+       // System.out.println("Vida: "+this.getVida());
         
     }
     
@@ -81,9 +81,9 @@ public class Personaje {
             this.setCalidad("Promedio");
             this.setPrioridad(2);
         }
-        System.out.println("I: "+ i);
+       /* System.out.println("I: "+ i);
         System.out.println("Calidad: "+this.getCalidad());
-        System.out.println("Prioridad: "+this.getPrioridad());
+        System.out.println("Prioridad: "+this.getPrioridad());*/
     }
 
     public int getId() {
