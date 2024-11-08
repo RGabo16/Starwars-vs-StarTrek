@@ -12,14 +12,14 @@ import primitives.*;
 public class Administrador {
 
     int ciclos; //cada 2 ciclos agrega dos personajes a sus respectivas colas
-    Cola cola1SW;
-    Cola cola1ST;
-    Cola cola2SW;
-    Cola cola2ST;
-    Cola cola3SW;
-    Cola cola3ST;
-    Cola colaRSW;
-    Cola colaRST;
+    Cola cola1SW = new Cola();
+    Cola cola1ST = new Cola();
+    Cola cola2SW = new Cola();
+    Cola cola2ST= new Cola();
+    Cola cola3SW = new Cola();
+    Cola cola3ST = new Cola();
+    Cola colaRSW = new Cola();
+    Cola colaRST = new Cola();
     Lista listasw;
     Lista listast;
 
@@ -39,11 +39,13 @@ public class Administrador {
                 case 1 ->{
                     this.getCola1SW().queue(this.getListasw().getpFirst());
                     this.getListasw().DeleteAtTheStart();
+                   
                     //encolar en prio1 de sw
                 }
                 case 2 -> {
                     this.getCola2SW().queue(this.getListasw().getpFirst());
                     this.getListasw().DeleteAtTheStart();
+                    
                 }
                 default -> {
                     this.getCola3SW().queue(this.getListasw().getpFirst());
