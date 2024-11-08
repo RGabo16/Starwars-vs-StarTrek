@@ -152,8 +152,10 @@ public class IA extends Thread {
         }
         System.out.println("num: " +num);
         this.getAdmin().setCiclos(this.getAdmin().getCiclos()+1);
+        //aumentar todos los contadores de los personajes 
         if (this.getAdmin().getCiclos()==3){
             this.getAdmin().setCiclos(0);
+            
         }
     }
     public Nodo getPj1() {
