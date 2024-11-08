@@ -29,7 +29,7 @@ public class Administrador {
     }
 
     public Administrador() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     public void Nuevospj(){
         //toma dos pj y los mete en sus colas
@@ -189,14 +189,16 @@ public class Administrador {
         this.listast = listast;
     }
     
-    public DefaultListModel getModeloNames(Cola cola){
+    public DefaultListModel getAtributo (Cola cola, String tipo){
         
         DefaultListModel modelo = new DefaultListModel();
-            
-            Nodo head = cola.getHead();
+        
+        Nodo head = cola.getHead();
+        Nodo elemento = head.getpNext();        
+        
+        if ("nombre".equals(tipo)){
             String headName = head.getElement().getNombre();
-            modelo.addElement(head);
-            Nodo elemento = head.getpNext();
+            modelo.addElement(headName);
             String elementoName = elemento.getElement().getNombre();
             modelo.addElement(elementoName);
             for(int i = 2; i<= cola.getSize(); i++){
@@ -204,6 +206,47 @@ public class Administrador {
                 elementoName = elemento.getElement().getNombre();
                 modelo.addElement(elementoName);
             }
-            return modelo;
+        } if ("agilidad".equals(tipo)){
+            int headAgilidad = head.getElement().getAgilidad();
+            modelo.addElement(headAgilidad);
+            int elementoAgilidad = elemento.getElement().getAgilidad();
+            modelo.addElement(elementoAgilidad);
+            for(int i = 2; i<= cola.getSize(); i++){
+                elemento = elemento.getpNext();
+                elementoAgilidad = elemento.getElement().getAgilidad();
+                modelo.addElement(elementoAgilidad);
+            }
+        } if ("habilidad".equals(tipo)){
+            int headHabilidad = head.getElement().getHabilidad();
+            modelo.addElement(headHabilidad);
+            int elementoHabilidad = elemento.getElement().getHabilidad();
+            modelo.addElement(elementoHabilidad);
+            for(int i = 2; i<= cola.getSize(); i++){
+                elemento = elemento.getpNext();
+                elementoHabilidad = elemento.getElement().getHabilidad();
+                modelo.addElement(elementoHabilidad);
+            }
+        } if ("fuerza".equals(tipo)){
+            int headFuerza = head.getElement().getFuerza();
+            modelo.addElement(headFuerza);
+            int elementoFuerza = elemento.getElement().getFuerza();
+            modelo.addElement(elementoFuerza);
+            for(int i = 2; i<= cola.getSize(); i++){
+                elemento = elemento.getpNext();
+                elementoFuerza = elemento.getElement().getFuerza();
+                modelo.addElement(elementoFuerza);
+            }
+        } if ("vida".equals(tipo)){
+            int headVida = head.getElement().getVida();
+            modelo.addElement(headVida);
+            int elementoVida = elemento.getElement().getVida();
+            modelo.addElement(elementoVida);
+            for(int i = 2; i<= cola.getSize(); i++){
+                elemento = elemento.getpNext();
+                elementoVida = elemento.getElement().getVida();
+                modelo.addElement(elementoVida);
+            }    
+        }          
+        return modelo;
     }
 }
