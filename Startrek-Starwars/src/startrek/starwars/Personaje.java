@@ -86,6 +86,15 @@ public class Personaje {
         System.out.println("Prioridad: "+this.getPrioridad());*/
     }
 
+    public void Inanicion(){
+        if (this.getContador()==8){
+            if (this.getPrioridad()>1){
+                this.setPrioridad(this.getPrioridad()-1);
+                
+            }
+            this.setContador(0);
+        }
+    }
     public int getId() {
         return id;
     }

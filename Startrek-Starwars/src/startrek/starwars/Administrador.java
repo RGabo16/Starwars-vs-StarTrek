@@ -39,17 +39,20 @@ public class Administrador {
                 case 1 ->{
                     this.getCola1SW().queue(this.getListasw().getpFirst());
                     this.getListasw().DeleteAtTheStart();
+                    this.getColaRSW().queue(this.getListasw().getpFirst());
                    
                     //encolar en prio1 de sw
                 }
                 case 2 -> {
                     this.getCola2SW().queue(this.getListasw().getpFirst());
                     this.getListasw().DeleteAtTheStart();
+                    this.getColaRSW().queue(this.getListasw().getpFirst());
                     
                 }
                 default -> {
                     this.getCola3SW().queue(this.getListasw().getpFirst());
                     this.getListasw().DeleteAtTheStart();
+                    this.getColaRSW().queue(this.getListasw().getpFirst());
                 }
             }
             int numst=this.getListast().getpFirst().getElement().getPrioridad();
@@ -57,15 +60,18 @@ public class Administrador {
                 case 1 ->{
                     this.getCola1ST().queue(this.getListast().getpFirst());
                     this.getListast().DeleteAtTheStart();
+                    this.getColaRST().queue(this.getListast().getpFirst());
                     //encolar en prio1 de sw
                 }
                 case 2 -> {
                     this.getCola2ST().queue(this.getListast().getpFirst());
                     this.getListast().DeleteAtTheStart();
+                    this.getColaRST().queue(this.getListast().getpFirst());
                 }
                 default -> {
                     this.getCola3ST().queue(this.getListast().getpFirst());
                     this.getListast().DeleteAtTheStart();
+                    this.getColaRST().queue(this.getListast().getpFirst());
                 }
             }
         
@@ -77,6 +83,18 @@ public class Administrador {
           int numrandom=(int)(Math.random()*10+1);
           if (numrandom>2){
               this.Nuevospj();
+          if (numrandom>6){
+              this.getCola1ST().queue(this.getColaRST().getHead());
+              this.getCola1SW().queue(this.getColaRSW().getHead());
+              this.getColaRST().dequeue();
+              this.getColaRSW().dequeue();
+          }else{
+              this.getColaRST().setTail(this.getColaRST().getHead());
+              this.getColaRSW().setTail(this.getColaRSW().getHead());
+              this.getColaRST().dequeue();
+              this.getColaRSW().dequeue();
+          }
+              
           }
             
         }
