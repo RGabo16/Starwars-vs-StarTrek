@@ -37,7 +37,7 @@ public class StartrekStarwars extends Thread{
         //los personajes vienen del txt
         Lista listasw= new Lista();
         Lista listast= new Lista();
-        Administrador admin = new Administrador(listasw,listast);
+        Administrador admin = new Administrador(listasw,listast,sw,st);
          
          
         

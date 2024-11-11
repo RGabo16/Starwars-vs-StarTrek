@@ -22,10 +22,14 @@ public class Administrador {
     Cola colaRST = new Cola();
     Lista listasw;
     Lista listast;
+    Saga startrek;
+    Saga starwars;
 
-    public Administrador(Lista sw,Lista st) {
+    public Administrador(Lista sw,Lista st, Saga Swar,Saga Strek) {
         this.listasw=sw;
         this.listast=st;
+        this.startrek=Strek;
+        this.starwars=Swar;
     }
 
     public Administrador() {
