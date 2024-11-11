@@ -9,6 +9,8 @@ import javax.swing.JList;
 import primitives.Cola;
 //import primitives.Nodo;
 import startrek.starwars.Administrador;
+import startrek.starwars.IA;
+import startrek.starwars.Saga;
 
 /**
  *
@@ -18,10 +20,16 @@ public class Yes extends Thread{
     
     private SimulationView simulation;
     private Administrador admin;
-
-    public Yes(SimulationView simulation, Administrador admin) {
+    private IA ia;
+    private Saga sw;
+    private Saga st;
+    
+    public Yes(SimulationView simulation, Administrador admin, IA ia, Saga sw, Saga st) {
         this.simulation = simulation;
         this.admin = admin;
+        this.ia = ia;
+        this.sw = sw;
+        this.st = st;
     }
 
     @Override
@@ -68,8 +76,20 @@ public class Yes extends Thread{
             modeloSW3 = admin.getAtributo(admin.getColaRST(), "nombre");
             simulation.getStColaRefuerzo().setModel(modeloSTrefuerzo);
             
-            // Puntaje
+            // Estado IA
+            simulation.getIaEstado().setText(ia.getResultado());
             
+            // Puntaje
+            simulation.getPuntajeSimulacion().setText(Integer.toString(sw.getPuntos()) + " - " + Integer.toString(st.getPuntos()));
+            
+            // Habilidades Star Wars
+            if (ia.getPj1() != null){
+                simulation.getHabilidadesSw().setText("<html>Nombre: " + ia.getPj1().getElement().getNombre() + "<br>ID: " + Integer.toString(ia.getPj1().getElement().getId()) + "<br>Agilidad: " + Integer.toString(ia.getPj1().getElement().getAgilidad()) + "<br>Habilidad: " + Integer.toString(ia.getPj1().getElement().getHabilidad()) + "<br>Fuerza: " + Integer.toString(ia.getPj1().getElement().getFuerza()) + "<br>Vida: " + Integer.toString(ia.getPj1().getElement().getVida())+ "</html>");  
+            }
+            // Habilidades Star Trek
+            if (ia.getPj2() != null){
+                simulation.getHabilidadesSt().setText("<html>Nombre: " + ia.getPj2().getElement().getNombre() + "<br>ID: " + Integer.toString(ia.getPj2().getElement().getId()) + "<br>Agilidad: " + Integer.toString(ia.getPj2().getElement().getAgilidad()) + "<br>Habilidad: " + Integer.toString(ia.getPj2().getElement().getHabilidad()) + "<br>Fuerza: " + Integer.toString(ia.getPj2().getElement().getFuerza()) + "<br>Vida: " + Integer.toString(ia.getPj2().getElement().getVida())+ "</html>");  
+            }
         }
     }
     

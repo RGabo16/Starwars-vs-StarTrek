@@ -25,20 +25,20 @@ public class SimulationView extends javax.swing.JFrame {
         this.fondo = fondo;
     }
 
-    public JLabel getHabilidadesPj1() {
-        return habilidadesPj1;
+    public JLabel getHabilidadesSw() {
+        return habilidadesSt;
     }
 
-    public void setHabilidadesPj1(JLabel habilidadesPj1) {
-        this.habilidadesPj1 = habilidadesPj1;
+    public void setHabilidadesSw(JLabel habilidadesSw) {
+        this.habilidadesSt = habilidadesSw;
     }
 
-    public JLabel getHabilidadesPj2() {
-        return habilidadesPj2;
+    public JLabel getHabilidadesSt() {
+        return habilidadesSw;
     }
 
-    public void setHabilidadesPj2(JLabel habilidadesPj2) {
-        this.habilidadesPj2 = habilidadesPj2;
+    public void setHabilidadesSt(JLabel habilidadesSt) {
+        this.habilidadesSw = habilidadesSt;
     }
 
     public JLabel getjLabel1() {
@@ -293,6 +293,15 @@ public class SimulationView extends javax.swing.JFrame {
         this.accessibleContext = accessibleContext;
     }
 
+    public JLabel getIaEstado() {
+        return iaEstado;
+    }
+
+    public void setIaEstado(JLabel iaEstado) {
+        this.iaEstado = iaEstado;
+    }
+    
+
     /**
      * Creates new form PrincipalView
      */
@@ -317,10 +326,11 @@ public class SimulationView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         pj1 = new javax.swing.JLabel();
         pj2 = new javax.swing.JLabel();
-        habilidadesPj1 = new javax.swing.JLabel();
-        habilidadesPj2 = new javax.swing.JLabel();
+        habilidadesSw = new javax.swing.JLabel();
+        habilidadesSt = new javax.swing.JLabel();
         puntajeSimulacion = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        iaEstado = new javax.swing.JLabel();
         tiempoSegundo = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         swCola1 = new javax.swing.JList<>();
@@ -374,29 +384,34 @@ public class SimulationView extends javax.swing.JFrame {
 
         pj1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jean-luc picard star trek.jpg"))); // NOI18N
         pj1.setText("jLabel9");
-        principalView.add(pj1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 200, 300));
+        principalView.add(pj1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 200, 300));
 
         pj2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Darth Vader star wars.jpg"))); // NOI18N
         pj2.setText("jLabel9");
-        principalView.add(pj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 200, 300));
+        principalView.add(pj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 200, 300));
 
-        habilidadesPj1.setForeground(java.awt.Color.white);
-        habilidadesPj1.setText("jLabel9");
-        principalView.add(habilidadesPj1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 680, 190, 80));
+        habilidadesSw.setForeground(java.awt.Color.white);
+        habilidadesSw.setText("jLabel9");
+        principalView.add(habilidadesSw, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 580, 190, 180));
 
-        habilidadesPj2.setForeground(java.awt.Color.white);
-        habilidadesPj2.setText("jLabel9");
-        principalView.add(habilidadesPj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 680, 180, 80));
+        habilidadesSt.setForeground(java.awt.Color.white);
+        habilidadesSt.setText("jLabel9");
+        principalView.add(habilidadesSt, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 580, 180, 170));
 
         puntajeSimulacion.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         puntajeSimulacion.setForeground(java.awt.Color.white);
         puntajeSimulacion.setText("0 - 0");
-        principalView.add(puntajeSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
+        principalView.add(puntajeSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setText("Duración de un segundo");
         principalView.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 740, -1, -1));
+
+        iaEstado.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        iaEstado.setForeground(java.awt.Color.white);
+        iaEstado.setText("ia pensando");
+        principalView.add(iaEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, -1, -1));
 
         tiempoSegundo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0.5", "1", "2", "3" }));
         tiempoSegundo.addActionListener(new java.awt.event.ActionListener() {
@@ -555,8 +570,9 @@ public class SimulationView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fondo;
-    private javax.swing.JLabel habilidadesPj1;
-    private javax.swing.JLabel habilidadesPj2;
+    private javax.swing.JLabel habilidadesSt;
+    private javax.swing.JLabel habilidadesSw;
+    private javax.swing.JLabel iaEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
