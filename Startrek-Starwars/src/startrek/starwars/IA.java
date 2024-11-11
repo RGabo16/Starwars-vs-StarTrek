@@ -131,7 +131,7 @@ public class IA extends Thread {
         }
         
         try {
-            this.setEstado("Decidiendo...");
+            this.setResultado("Decidiendo...");
               Thread.sleep(Duration.ofSeconds((long)(tiempo*10)));
             } catch (InterruptedException ex) {
                 Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
