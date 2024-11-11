@@ -23,7 +23,7 @@ public class Administrador {
     Lista listasw;
     Lista listast;
 
-    public Administrador(Lista sw,Lista st, Saga Swar,Saga Strek) {
+    public Administrador(Lista sw,Lista st) {
         this.listasw=sw;
         this.listast=st;
     }
@@ -38,45 +38,40 @@ public class Administrador {
             switch (numsw) {
                 case 1 ->{
                     this.getCola1SW().queue(this.getListasw().getpFirst());
-                    this.getColaRSW().queue(this.getListasw().getpFirst());
                     this.getListasw().DeleteAtTheStart();
-                    
+                    this.getColaRSW().queue(this.getListasw().getpFirst());
                    
                     //encolar en prio1 de sw
                 }
                 case 2 -> {
                     this.getCola2SW().queue(this.getListasw().getpFirst());
-                    this.getColaRSW().queue(this.getListasw().getpFirst());
                     this.getListasw().DeleteAtTheStart();
-                    
+                    this.getColaRSW().queue(this.getListasw().getpFirst());
                     
                 }
                 default -> {
                     this.getCola3SW().queue(this.getListasw().getpFirst());
-                    this.getColaRSW().queue(this.getListasw().getpFirst());
                     this.getListasw().DeleteAtTheStart();
+                    this.getColaRSW().queue(this.getListasw().getpFirst());
                 }
             }
             int numst=this.getListast().getpFirst().getElement().getPrioridad();
             switch (numst) {
                 case 1 ->{
                     this.getCola1ST().queue(this.getListast().getpFirst());
-                    this.getColaRST().queue(this.getListast().getpFirst());
                     this.getListast().DeleteAtTheStart();
-                    
+                    this.getColaRST().queue(this.getListast().getpFirst());
                     //encolar en prio1 de sw
                 }
                 case 2 -> {
                     this.getCola2ST().queue(this.getListast().getpFirst());
-                    this.getColaRST().queue(this.getListast().getpFirst());
                     this.getListast().DeleteAtTheStart();
-                    
+                    this.getColaRST().queue(this.getListast().getpFirst());
                 }
                 default -> {
                     this.getCola3ST().queue(this.getListast().getpFirst());
-                    this.getColaRST().queue(this.getListast().getpFirst());
                     this.getListast().DeleteAtTheStart();
-                    
+                    this.getColaRST().queue(this.getListast().getpFirst());
                 }
             }
         
@@ -84,7 +79,7 @@ public class Administrador {
     public void Revision(){
         //80% de si entran o no 
         
-        if (ciclos==2){
+        if (ciclos%2==0){
           int numrandom=(int)(Math.random()*10+1);
           if (numrandom>2){
               this.Nuevospj();

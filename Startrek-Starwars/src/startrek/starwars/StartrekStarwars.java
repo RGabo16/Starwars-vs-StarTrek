@@ -37,7 +37,7 @@ public class StartrekStarwars extends Thread{
         //los personajes vienen del txt
         Lista listasw= new Lista();
         Lista listast= new Lista();
-        Administrador admin = new Administrador(listasw,listast,sw,st);
+        Administrador admin = new Administrador(listasw,listast);
          
          
         
@@ -46,8 +46,8 @@ public class StartrekStarwars extends Thread{
         pjw1.DefinirCalidad();
         pjt1 = new Personaje(2, "B", st);
         pjt1.DefinirCalidad();
-       pjw1.setPrioridad(1);
-       pjt1.setPrioridad(1);
+        pjw1.setPrioridad(1);
+        pjt1.setPrioridad(1);
         Nodo n1= new Nodo(pjw1);
         Nodo n2= new Nodo(pjt1);
         
