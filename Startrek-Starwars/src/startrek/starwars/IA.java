@@ -35,7 +35,12 @@ public class IA extends Thread {
     public void DecidirGanador(){
         int puntajePj1 = 0;
         int puntajePj2 = 0;
-        this.setResultado("Seleccionando Ganador");
+        try {
+            this.setResultado("Decidiendo Ganador");
+              Thread.sleep(Duration.ofSeconds((long)(tiempo*5)));
+            } catch (InterruptedException ex) {
+                Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
         // Comparar habilidad
         if (this.getPj1().getElement().getHabilidad() > this.getPj2().getElement().getHabilidad()){
@@ -130,20 +135,35 @@ public class IA extends Thread {
             this.getAdmin().getCola3SW().dequeue();
         }
         
-        
+        try {
+            this.setResultado("Decidiendo...");
+              Thread.sleep(Duration.ofSeconds((long)(tiempo*5)));
+            } catch (InterruptedException ex) {
+                Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
+            }
         float num=(float)(Math.random()*10+1);
         if (num <=4.0){
             //40% de que alguien gane 
             this.DecidirGanador();
         }else if (num<=6.7){
-            this.resultado="Empate";
+            try {
+            this.setResultado("Empate");
+              Thread.sleep(Duration.ofSeconds((long)(tiempo*5)));
+            } catch (InterruptedException ex) {
+                Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
+            }
             System.out.println(this.getResultado());
             this.getAdmin().getCola1SW().queue(pj1);
             this.getAdmin().getCola1ST().queue(pj2);
             
             
         }else{
-            this.resultado="Pelea cancelada";
+            try {
+            this.setResultado("Pelea Cancelada");
+              Thread.sleep(Duration.ofSeconds((long)(tiempo*5)));
+            } catch (InterruptedException ex) {
+                Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
+            }
             System.out.println(this.getResultado());
             this.getAdmin().getColaRSW().queue(pj1);
             this.getAdmin().getColaRST().queue(pj2);
