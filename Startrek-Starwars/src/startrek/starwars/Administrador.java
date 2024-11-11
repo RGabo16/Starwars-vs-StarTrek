@@ -15,7 +15,7 @@ public class Administrador {
     Cola cola1SW = new Cola();
     Cola cola1ST = new Cola();
     Cola cola2SW = new Cola();
-    Cola cola2ST= new Cola();
+    Cola cola2ST = new Cola();
     Cola cola3SW = new Cola();
     Cola cola3ST = new Cola();
     Cola colaRSW = new Cola();

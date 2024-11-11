@@ -60,7 +60,8 @@ public class Cola {
      */
     public void queue(Nodo nuevo){
         if (this.isEmpty()){
-            setHead(tail = nuevo);
+            this.setHead(nuevo);
+            this.setTail(nuevo);
         } else {
             getTail().setpNext(nuevo);
             setTail(nuevo);
