@@ -87,7 +87,7 @@ public class StartrekStarwars extends Thread{
        admin.Nuevospj();
        //INTERFAZ
         SimulationView simulation = new SimulationView();
-        Yes yes = new Yes(simulation, admin);
+        Yes yes = new Yes(simulation, admin, ia, sw, st);
         yes.start();
         simulation.setVisible(true);
         for (int i=0;i<3;i++){
