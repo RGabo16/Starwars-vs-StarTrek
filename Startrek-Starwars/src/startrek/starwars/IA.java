@@ -105,7 +105,6 @@ public class IA extends Thread {
         System.out.println("P1: "+puntajePj1+ " P2: "+ puntajePj2);
         System.out.println("SW: "+this.getPj1().getElement().getSaga().getPuntos()+" ST: "+this.getPj2().getElement().getSaga().getPuntos());//siempre el pj2 es de ST
     }
-    //hilo para la espera y semaforo
     public void startIA(){
         
         if (this.getAdmin().getCola1ST().getSize()>0 && this.getAdmin().getCola1SW().getSize()>0){
