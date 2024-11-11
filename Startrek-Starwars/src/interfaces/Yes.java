@@ -90,6 +90,9 @@ public class Yes extends Thread{
             if (ia.getPj2() != null){
                 simulation.getHabilidadesSt().setText("<html>Nombre: " + ia.getPj2().getElement().getNombre() + "<br>ID: " + Integer.toString(ia.getPj2().getElement().getId()) + "<br>Agilidad: " + Integer.toString(ia.getPj2().getElement().getAgilidad()) + "<br>Habilidad: " + Integer.toString(ia.getPj2().getElement().getHabilidad()) + "<br>Fuerza: " + Integer.toString(ia.getPj2().getElement().getFuerza()) + "<br>Vida: " + Integer.toString(ia.getPj2().getElement().getVida())+ "</html>");  
             }
+            
+            // Cambiar tiempo
+            ia.setTiempo(Double.parseDouble((String) simulation.getTiempoSegundo().getSelectedItem()));
         }
     }
     
