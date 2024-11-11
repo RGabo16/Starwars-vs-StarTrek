@@ -4,6 +4,14 @@
  */
 package startrek.starwars;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author rgabr
@@ -19,12 +27,20 @@ public class Personaje {
     int contador;
     String Calidad; //maybe int
     Saga saga;//maybe
+    //ImageIcon imagen;
+    String imagen;
 
-    public Personaje(int id, String nombre, Saga saga) {
+    public Personaje(int id, String nombre, Saga saga, String rutaImagen) throws IOException {
         this.id = id;
         this.nombre = nombre;
         this.contador = 0;
         this.saga = saga;
+        this.imagen = rutaImagen;
+    }
+    
+    public Icon buscarImagen(String rutaImagen) throws IOException{
+        Icon image = (Icon) ImageIO.read(new File(rutaImagen));
+        return new ImageIcon((Image) image);
     }
     
     public void DefinirStats(){
@@ -173,6 +189,14 @@ public class Personaje {
 
     public void setSaga(Saga saga) {
         this.saga = saga;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
     
    

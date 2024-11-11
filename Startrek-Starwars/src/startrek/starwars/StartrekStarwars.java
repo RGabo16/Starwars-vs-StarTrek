@@ -7,6 +7,7 @@ package startrek.starwars;
 import interfaces.PrincipalView;
 import interfaces.SimulationView;
 import interfaces.Yes;
+import java.io.IOException;
 import primitives.*;
 
 /**
@@ -18,7 +19,7 @@ public class StartrekStarwars extends Thread{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
         
        // PrincipalView main = new PrincipalView();
@@ -42,27 +43,27 @@ public class StartrekStarwars extends Thread{
          
         
         Personaje pjw1,pjw2,pjw3,pjt1,pjt2,pjt3;
-        pjw1 = new Personaje(1,"A",sw);
+        pjw1 = new Personaje(1,"A",sw, "/images/Anakin Skywalker star wars.png");
         pjw1.DefinirCalidad();
-        pjt1 = new Personaje(2, "B", st);
+        pjt1 = new Personaje(2, "B", st, "/images/Data star trek.jpg");
         pjt1.DefinirCalidad();
         pjw1.setPrioridad(1);
         pjt1.setPrioridad(1);
         Nodo n1= new Nodo(pjw1);
         Nodo n2= new Nodo(pjt1);
         
-        pjw2 = new Personaje(1,"A",sw);
+        pjw2 = new Personaje(1,"A",sw, "/images/Leia Organa star wars.jpg");
         pjw2.DefinirCalidad();
-        pjt2 = new Personaje(2, "B", st);
+        pjt2 = new Personaje(2, "B", st, "/images/Deanna Troi star trek.png");
         pjt2.DefinirCalidad();
         pjw2.setPrioridad(2);
         pjt2.setPrioridad(2);
         Nodo n3= new Nodo(pjw2);
         Nodo n4= new Nodo(pjt2);
         
-        pjw3 = new Personaje(1,"A",sw);
+        pjw3 = new Personaje(1,"A",sw, "/images/Padme Amidala star wars.jpg");
         pjw3.DefinirCalidad();
-        pjt3 = new Personaje(2, "B", st);
+        pjt3 = new Personaje(2, "B", st, "/images/Spock star trek.jpg");
         pjt3.DefinirCalidad();
         pjw3.setPrioridad(3);
         pjt3.setPrioridad(3);
@@ -95,6 +96,8 @@ public class StartrekStarwars extends Thread{
         ia.startIA();
         
         }
+       
+      
         
         
         

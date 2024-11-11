@@ -5,6 +5,7 @@
 package interfaces;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JList;
 import primitives.Cola;
 //import primitives.Nodo;
@@ -85,10 +86,12 @@ public class Yes extends Thread{
             // Habilidades Star Wars
             if (ia.getPj1() != null){
                 simulation.getHabilidadesSw().setText("<html>Nombre: " + ia.getPj1().getElement().getNombre() + "<br>ID: " + Integer.toString(ia.getPj1().getElement().getId()) + "<br>Agilidad: " + Integer.toString(ia.getPj1().getElement().getAgilidad()) + "<br>Habilidad: " + Integer.toString(ia.getPj1().getElement().getHabilidad()) + "<br>Fuerza: " + Integer.toString(ia.getPj1().getElement().getFuerza()) + "<br>Vida: " + Integer.toString(ia.getPj1().getElement().getVida())+ "</html>");  
+                simulation.getPj1().setIcon(new ImageIcon(getClass().getResource(ia.getPj1().getElement().getImagen())));
             }
             // Habilidades Star Trek
             if (ia.getPj2() != null){
                 simulation.getHabilidadesSt().setText("<html>Nombre: " + ia.getPj2().getElement().getNombre() + "<br>ID: " + Integer.toString(ia.getPj2().getElement().getId()) + "<br>Agilidad: " + Integer.toString(ia.getPj2().getElement().getAgilidad()) + "<br>Habilidad: " + Integer.toString(ia.getPj2().getElement().getHabilidad()) + "<br>Fuerza: " + Integer.toString(ia.getPj2().getElement().getFuerza()) + "<br>Vida: " + Integer.toString(ia.getPj2().getElement().getVida())+ "</html>");  
+                simulation.getPj2().setIcon(new ImageIcon(getClass().getResource(ia.getPj2().getElement().getImagen())));
             }
             
             // Cambiar tiempo
