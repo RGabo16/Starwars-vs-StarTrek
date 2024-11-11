@@ -80,6 +80,7 @@ public class IA extends Thread {
         // Comparar puntajes finales
         if (puntajePj1 > puntajePj2){
             System.out.println("Jugador " +this.getPj1().getElement().getNombre()+ " gana");
+            this.resultado=this.getPj1().getElement().getNombre()+" gana";
             this.getListaWin().addAtTheStart(pj1);
             
            
@@ -88,17 +89,20 @@ public class IA extends Thread {
             int decision = (int) (Math.random() * 10 + 1);
             if (decision <= 5){
                 System.out.println("Jugador " +this.getPj1().getElement().getNombre()+ " gana");
+                this.resultado=this.getPj1().getElement().getNombre()+" gana";
                 this.getListaWin().addAtTheStart(pj1);
                 this.getPj1().getElement().getSaga().setPuntos(this.getPj1().getElement().getSaga().getPuntos()+1);
                 
 
             } else {
                 System.out.println("Jugador " +this.getPj2().getElement().getNombre()+ " gana");
+                this.resultado=this.getPj2().getElement().getNombre()+" gana";
                 this.getListaWin().addAtTheStart(pj2);
                 this.getPj2().getElement().getSaga().setPuntos(this.getPj2().getElement().getSaga().getPuntos()+1);
             }            
         } else {
             System.out.println("Jugador " +this.getPj2().getElement().getNombre()+ " gana");
+            this.resultado=this.getPj2().getElement().getNombre()+" gana";
             this.getListaWin().addAtTheStart(pj2);
             this.getPj2().getElement().getSaga().setPuntos(this.getPj2().getElement().getSaga().getPuntos()+1);
         } 

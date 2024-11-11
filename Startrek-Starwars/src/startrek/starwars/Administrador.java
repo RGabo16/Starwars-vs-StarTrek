@@ -79,7 +79,7 @@ public class Administrador {
     public void Revision(){
         //80% de si entran o no 
         
-        if (ciclos==2){
+        if (ciclos%2==0){
           int numrandom=(int)(Math.random()*10+1);
           if (numrandom>2){
               this.Nuevospj();
