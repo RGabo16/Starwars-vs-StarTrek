@@ -35,7 +35,7 @@ public class IA extends Thread {
     public void DecidirGanador(){
         int puntajePj1 = 0;
         int puntajePj2 = 0;
-        this.setEstado("Seleccionando Ganador");
+        this.setResultado("Seleccionando Ganador");
         
         // Comparar habilidad
         if (this.getPj1().getElement().getHabilidad() > this.getPj2().getElement().getHabilidad()){
@@ -130,12 +130,7 @@ public class IA extends Thread {
             this.getAdmin().getCola3SW().dequeue();
         }
         
-        try {
-            this.setResultado("Decidiendo...");
-              Thread.sleep(Duration.ofSeconds((long)(tiempo*10)));
-            } catch (InterruptedException ex) {
-                Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        
         float num=(float)(Math.random()*10+1);
         if (num <=4.0){
             //40% de que alguien gane 
