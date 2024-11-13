@@ -87,8 +87,6 @@ public class IA extends Thread {
             System.out.println("Jugador " +this.getPj1().getElement().getNombre()+ " gana");
             this.resultado=this.getPj1().getElement().getNombre()+" gana";
             this.getListaWin().addAtTheStart(pj1);
-            
-           
             this.getPj1().getElement().getSaga().setPuntos(this.getPj1().getElement().getSaga().getPuntos()+1);
         } else if (puntajePj1 == puntajePj2) {
             int decision = (int) (Math.random() * 10 + 1);
@@ -115,7 +113,9 @@ public class IA extends Thread {
         System.out.println("SW: "+this.getPj1().getElement().getSaga().getPuntos()+" ST: "+this.getPj2().getElement().getSaga().getPuntos());//siempre el pj2 es de ST
     }
     public void startIA(){
-        
+       // while(this.getAdmin().getCola1ST().getSize()>0 || this.getAdmin().getCola1ST().getSize()>0){
+            
+      //  }
         if (this.getAdmin().getCola1ST().getSize()>0 && this.getAdmin().getCola1SW().getSize()>0){
             this.pj1 = this.getAdmin().getCola1ST().getHead();
             this.pj2 = this.getAdmin().getCola1SW().getHead();
@@ -128,7 +128,9 @@ public class IA extends Thread {
             this.pj2 = this.getAdmin().getCola2SW().getHead();
             this.getAdmin().getCola2ST().dequeue();
             this.getAdmin().getCola2SW().dequeue();
-        }else{
+            
+        }else if(this.getAdmin().getCola3ST().getSize()>0 && this.getAdmin().getCola3SW().getSize()>0){
+            
             this.pj1 = this.getAdmin().getCola3ST().getHead();
             this.pj2 = this.getAdmin().getCola3SW().getHead();
             this.getAdmin().getCola3ST().dequeue();
@@ -168,13 +170,11 @@ public class IA extends Thread {
             this.getAdmin().getColaRSW().queue(pj1);
             this.getAdmin().getColaRST().queue(pj2);
         }
+        
         System.out.println("num: " +num);
         this.getAdmin().setCiclos(this.getAdmin().getCiclos()+1);
         //aumentar todos los contadores de los personajes 
-        if (this.getAdmin().getCiclos()==3){
-            this.getAdmin().setCiclos(0);
-            
-        }
+       
     }
     public Nodo getPj1() {
         return pj1;

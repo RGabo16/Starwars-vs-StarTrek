@@ -54,7 +54,7 @@ public class Yes extends Thread{
             
             // Cola SW refuerzo
             DefaultListModel modeloSWrefuerzo = new DefaultListModel();
-            modeloSW3 = admin.getAtributo(admin.getColaRSW(), "nombre");
+            modeloSWrefuerzo = admin.getAtributo(admin.getColaRSW(), "nombre");
             simulation.getSwColaRefuerzo().setModel(modeloSWrefuerzo);
             
             // Cola ST 1
@@ -74,7 +74,7 @@ public class Yes extends Thread{
             
             // Cola ST refuerzo
             DefaultListModel modeloSTrefuerzo = new DefaultListModel();
-            modeloSW3 = admin.getAtributo(admin.getColaRST(), "nombre");
+            modeloSTrefuerzo = admin.getAtributo(admin.getColaRST(), "nombre");
             simulation.getStColaRefuerzo().setModel(modeloSTrefuerzo);
             
             // Estado IA

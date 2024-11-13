@@ -33,8 +33,8 @@ public class Administrador {
     }
     public void Nuevospj(){
         //toma dos pj y los mete en sus colas
-        
-          int numsw=this.getListasw().getpFirst().getElement().getPrioridad();
+        if (!this.getListasw().isEmpty()){
+            int numsw=this.getListasw().getpFirst().getElement().getPrioridad();
             switch (numsw) {
                 case 1 ->{
                     this.getCola1SW().queue(this.getListasw().getpFirst());
@@ -54,7 +54,9 @@ public class Administrador {
                     this.getListasw().DeleteAtTheStart();
                 }
             }
-            int numst=this.getListast().getpFirst().getElement().getPrioridad();
+        }
+        if (!this.getListast().isEmpty()){
+             int numst=this.getListast().getpFirst().getElement().getPrioridad();
             switch (numst) {
                 case 1 ->{
                     this.getCola1ST().queue(this.getListast().getpFirst());
@@ -73,6 +75,8 @@ public class Administrador {
                     this.getListast().DeleteAtTheStart();
                 }
             }
+        }  System.out.println("Listas vacias");
+           
         
     }
     public void Revision(){
