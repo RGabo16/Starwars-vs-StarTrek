@@ -4,12 +4,9 @@
  */
 package startrek.starwars;
 
-import interfaces.PrincipalView;
 import interfaces.SimulationView;
 import interfaces.Yes;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import primitives.*;
 
 /**
@@ -22,12 +19,6 @@ public class StartrekStarwars extends Thread{
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        // TODO code application logic here
-        
-       // PrincipalView main = new PrincipalView();
-        //main.setVisible(true);
-
-        
         
         IA ia;
         Thread t0;
@@ -35,7 +26,7 @@ public class StartrekStarwars extends Thread{
         //se crean las sagas
         sw= new Saga("Star Wars");
         st = new Saga("Star Trek");
-        //timepo de cada segundo
+        //tiempo de cada segundo
         double tiempo=0.5;
         //los personajes 
         Lista listasw= new Lista();
@@ -45,14 +36,13 @@ public class StartrekStarwars extends Thread{
         p.leerDatos(listasw, listast, sw, st);
         Administrador admin = new Administrador(listasw,listast);
 
-       for (int i=0;i<41;i++){
+        for (int i=0;i<41;i++){
            admin.Nuevospj();
-           
-       }
+        }
        
-       ia = new IA(tiempo,admin);
+        ia = new IA(tiempo,admin);
 
-       //INTERFAZ
+        //INTERFAZ
         SimulationView simulation = new SimulationView();
         Yes yes = new Yes(simulation, admin, ia, sw, st);
         yes.start();
@@ -62,11 +52,6 @@ public class StartrekStarwars extends Thread{
         ia.startIA();
         admin.Revision();
         
-        }
-
-       
-    }
-      
-        
-    
-    }
+        }     
+    }   
+}

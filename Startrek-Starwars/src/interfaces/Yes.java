@@ -6,9 +6,6 @@ package interfaces;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
-import javax.swing.JList;
-import primitives.Cola;
-//import primitives.Nodo;
 import startrek.starwars.Administrador;
 import startrek.starwars.IA;
 import startrek.starwars.Saga;
@@ -21,9 +18,9 @@ public class Yes extends Thread{
     
     private SimulationView simulation;
     private Administrador admin;
-    private IA ia;
-    private Saga sw;
-    private Saga st;
+    private final IA ia;
+    private final Saga sw;
+    private final Saga st;
     
     public Yes(SimulationView simulation, Administrador admin, IA ia, Saga sw, Saga st) {
         this.simulation = simulation;

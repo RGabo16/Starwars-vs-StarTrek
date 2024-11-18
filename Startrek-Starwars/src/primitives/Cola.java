@@ -4,9 +4,6 @@
  */
 package primitives;
 
-import java.util.HashSet;
-import javax.swing.DefaultListModel;
-
 /**
  *
  * @author Luriannys Junco

@@ -97,7 +97,6 @@ public class IA extends Thread {
                 this.getListaWin().addAtTheStart(pj1);
                 this.getPj1().getElement().getSaga().setPuntos(this.getPj1().getElement().getSaga().getPuntos()+1);
                 
-
             } else {
                 System.out.println("Jugador " +this.getPj2().getElement().getNombre()+ " gana");
                 this.resultado=this.getPj2().getElement().getNombre()+" gana";
@@ -116,6 +115,9 @@ public class IA extends Thread {
         System.out.println("P2: "+puntajePj2+ " P1: "+ puntajePj1);
         System.out.println("SW: "+this.getPj2().getElement().getSaga().getPuntos()+" ST: "+this.getPj1().getElement().getSaga().getPuntos());//siempre el pj2 es de ST
     }
+    
+    
+    
     public void startIA(){
        // while(this.getAdmin().getCola1ST().getSize()>0 || this.getAdmin().getCola1ST().getSize()>0){
             

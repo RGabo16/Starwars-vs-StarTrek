@@ -42,21 +42,21 @@ public class Administrador {
                     Nodo primero = this.getListasw().getpFirst();
                     this.getListasw().DeleteAtTheStart();
                     this.getCola1SW().queue(primero);
-                    this.getColaRSW().queue(primero);
+                    //this.getColaRSW().queue(primero);
                     //encolar en prio1 de sw
                 }
                 case 2 -> {
                     Nodo primero = this.getListasw().getpFirst();
                     this.getListasw().DeleteAtTheStart();
                     this.getCola2SW().queue(primero);
-                    this.getColaRSW().queue(primero);
+                    //this.getColaRSW().queue(primero);
                     
                 }
                 default -> {
                     Nodo primero = this.getListasw().getpFirst();
                     this.getListasw().DeleteAtTheStart();
                     this.getCola3SW().queue(primero);
-                    this.getColaRSW().queue(primero);
+                    //this.getColaRSW().queue(primero);
                 }
             }
         }
@@ -67,20 +67,20 @@ public class Administrador {
                     Nodo primero = this.getListast().getpFirst();
                     this.getListast().DeleteAtTheStart();
                     this.getCola1ST().queue(primero);
-                    this.getColaRST().queue(primero);
+                    //this.getColaRST().queue(primero);
                     //encolar en prio1 de sw
                 }
                 case 2 -> {
                     Nodo primero = this.getListast().getpFirst();
                     this.getListast().DeleteAtTheStart();
                     this.getCola2ST().queue(primero);
-                    this.getColaRST().queue(primero);
+                    //this.getColaRST().queue(primero);
                 }
                 default -> {
                     Nodo primero = this.getListast().getpFirst();
                     this.getListast().DeleteAtTheStart();
                     this.getCola3ST().queue(primero);
-                    this.getColaRST().queue(primero);
+                    //this.getColaRST().queue(primero);
                 }
             }
         }  System.out.println("Listas vacias");
@@ -94,18 +94,21 @@ public class Administrador {
           int numrandom=(int)(Math.random()*10);
           if (numrandom>2){
               this.Nuevospj();
-            }       
-          if (numrandom>6){
-              this.getCola1ST().queue(this.getColaRST().getHead());
-              this.getCola1SW().queue(this.getColaRSW().getHead());
-              this.getColaRST().dequeue();
-              this.getColaRSW().dequeue();
-          }else{
-              this.getColaRST().setTail(this.getColaRST().getHead());
-              this.getColaRSW().setTail(this.getColaRSW().getHead());
-              this.getColaRST().dequeue();
-              this.getColaRSW().dequeue();
+            }    
+            if ((!this.getColaRST().isEmpty()) && (!this.getColaRSW().isEmpty())){
+              if (numrandom>6){
+                this.getCola1ST().queue(this.getColaRST().getHead());
+                this.getCola1SW().queue(this.getColaRSW().getHead());
+                this.getColaRST().dequeue();
+                this.getColaRSW().dequeue();
+            }else{
+                this.getColaRST().setTail(this.getColaRST().getHead());
+                this.getColaRSW().setTail(this.getColaRSW().getHead());
+                this.getColaRST().dequeue();
+                this.getColaRSW().dequeue();
           }
+        }
+          
               
           
                             
