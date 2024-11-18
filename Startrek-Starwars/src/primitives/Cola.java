@@ -4,6 +4,7 @@
  */
 package primitives;
 
+import java.util.HashSet;
 import javax.swing.DefaultListModel;
 
 /**
@@ -65,6 +66,7 @@ public class Cola {
         } else {
             getTail().setpNext(nuevo);
             setTail(nuevo);
+            nuevo.setpNext(null);
         }
         setSize(getSize() + 1);
     }

@@ -83,9 +83,10 @@ public class Administrador {
         //80% de si entran o no 
         
         if (ciclos%2==0){
-          int numrandom=(int)(Math.random()*10+1);
+          int numrandom=(int)(Math.random()*10);
           if (numrandom>2){
               this.Nuevospj();
+            }       
           if (numrandom>6){
               this.getCola1ST().queue(this.getColaRST().getHead());
               this.getCola1SW().queue(this.getColaRSW().getHead());
@@ -98,8 +99,8 @@ public class Administrador {
               this.getColaRSW().dequeue();
           }
               
-          }
-            
+          
+                            
         }
         
     }
@@ -273,13 +274,15 @@ public class Administrador {
                 
         // Verifica que la cola no este vacia
         if (!cola.isEmpty()){
-            Nodo elemento = cola.getHead();     
+            Nodo elemento = cola.getHead();  
             elemento.getElement().setContador(elemento.getElement().getContador() + 1);
+            elemento.getElement().Inanicion();
 
             // Verifica que haya mas elementos
             while (elemento.getpNext() != null){
                 elemento = elemento.getpNext();
                 elemento.getElement().setContador(elemento.getElement().getContador() + 1);
+                elemento.getElement().Inanicion();
             }
         }
     }

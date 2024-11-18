@@ -44,8 +44,9 @@ public class StartrekStarwars extends Thread{
       
         p.leerDatos(listasw, listast, sw, st);
         Administrador admin = new Administrador(listasw,listast);
+        p.leerDatos(listasw, listast, sw, st);
 
-       for (int i=0;i<9;i++){
+       for (int i=0;i<41;i++){
            admin.Nuevospj();
            
        }
@@ -60,18 +61,10 @@ public class StartrekStarwars extends Thread{
         for (int i=0;i<9;i++){
         
         ia.startIA();
+        admin.Revision();
         
         }
-       
-      
-        
-        
-        
-        
-        
-        
-        
-      
+
        
     }
       
