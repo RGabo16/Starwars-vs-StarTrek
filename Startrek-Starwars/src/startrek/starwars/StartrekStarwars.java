@@ -166,7 +166,7 @@ public class StartrekStarwars extends Thread{
         yes.start();
         simulation.setVisible(true);
         for (int i=0;i<9;i++){
-            
+        
         ia.startIA();
         
         }

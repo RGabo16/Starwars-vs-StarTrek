@@ -88,6 +88,7 @@ public class IA extends Thread {
             this.resultado=this.getPj1().getElement().getNombre()+" gana";
             this.getListaWin().addAtTheStart(pj1);
             this.getPj1().getElement().getSaga().setPuntos(this.getPj1().getElement().getSaga().getPuntos()+1);
+            
         } else if (puntajePj1 == puntajePj2) {
             int decision = (int) (Math.random() * 10 + 1);
             if (decision <= 5){
@@ -109,8 +110,11 @@ public class IA extends Thread {
             this.getListaWin().addAtTheStart(pj2);
             this.getPj2().getElement().getSaga().setPuntos(this.getPj2().getElement().getSaga().getPuntos()+1);
         } 
-        System.out.println("P1: "+puntajePj1+ " P2: "+ puntajePj2);
-        System.out.println("SW: "+this.getPj1().getElement().getSaga().getPuntos()+" ST: "+this.getPj2().getElement().getSaga().getPuntos());//siempre el pj2 es de ST
+       
+        this.getAdmin().getColaRST().queue(pj1);
+        this.getAdmin().getColaRSW().queue(pj2);
+        System.out.println("P2: "+puntajePj2+ " P1: "+ puntajePj1);
+        System.out.println("SW: "+this.getPj2().getElement().getSaga().getPuntos()+" ST: "+this.getPj1().getElement().getSaga().getPuntos());//siempre el pj2 es de ST
     }
     public void startIA(){
        // while(this.getAdmin().getCola1ST().getSize()>0 || this.getAdmin().getCola1ST().getSize()>0){
@@ -144,10 +148,12 @@ public class IA extends Thread {
                 Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
             }
         float num=(float)(Math.random()*10+1);
-        if (num <=4.0){
+        if (num <4){
+            //4
             //40% de que alguien gane 
             this.DecidirGanador();
         }else if (num<=6.7){
+            //6.7
             try {
             this.setResultado("Empate");
               Thread.sleep(Duration.ofSeconds((long)(tiempo*5)));
@@ -155,8 +161,8 @@ public class IA extends Thread {
                 Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
             }
             System.out.println(this.getResultado());
-            this.getAdmin().getCola1SW().queue(pj1);
-            this.getAdmin().getCola1ST().queue(pj2);
+            this.getAdmin().getCola1SW().queue(pj2);
+            this.getAdmin().getCola1ST().queue(pj1);
             
             
         }else{
@@ -167,8 +173,8 @@ public class IA extends Thread {
                 Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
             }
             System.out.println(this.getResultado());
-            this.getAdmin().getColaRSW().queue(pj1);
-            this.getAdmin().getColaRST().queue(pj2);
+            this.getAdmin().getColaRSW().queue(pj2);
+            this.getAdmin().getColaRST().queue(pj1);
         }
         
         System.out.println("num: " +num);
