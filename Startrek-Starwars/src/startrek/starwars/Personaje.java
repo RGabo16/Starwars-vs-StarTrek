@@ -6,11 +6,16 @@ package startrek.starwars;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import primitives.Lista;
+import primitives.Nodo;
 
 /**
  *
@@ -27,7 +32,6 @@ public class Personaje {
     int contador;
     String Calidad; //maybe int
     Saga saga;//maybe
-    //ImageIcon imagen;
     String imagen;
 
     public Personaje(int id, String nombre, Saga saga, String rutaImagen) throws IOException {
@@ -36,6 +40,14 @@ public class Personaje {
         this.contador = 0;
         this.saga = saga;
         this.imagen = rutaImagen;
+    }
+
+    public Personaje() {
+        this.id = 0;
+        this.nombre = null;
+        this.contador = 0;
+        this.saga = null;
+        this.imagen = null;
     }
     
     public Icon buscarImagen(String rutaImagen) throws IOException{
@@ -111,6 +123,47 @@ public class Personaje {
             this.setContador(0);
         }
     }
+     
+    public Lista splitt(String cadena){
+        String palabra = "";
+        Lista resultado = new Lista();
+        for (int i = 0; i < cadena.length(); i++){
+            char letra = cadena.charAt(i);
+            if (letra != ','){
+                palabra += letra;
+            } else{
+               resultado.addAtTheEnd(new Nodo(palabra));
+               palabra = "";
+            }
+        }
+        return resultado;
+    }
+    
+    public void leerDatos(Lista personajesSW, Lista personajesST, Saga sw, Saga st) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("personajes.txt"));
+                for (int i = 0; i<40;i++){
+                    String personaje = reader.readLine();
+                    Lista partes = this.splitt(personaje);
+                    Personaje pj = new Personaje(Integer.parseInt(partes.getpFirst().getPalabra()),
+                            partes.getpFirst().getpNext().getPalabra(),
+                            new Saga(""),
+                            partes.getpFirst().getpNext().getpNext().getpNext().getPalabra());
+                    pj.DefinirCalidad();
+                    if ("sw".equals(partes.getpFirst().getpNext().getpNext().getPalabra())){
+                        pj.setSaga(sw);                     
+                        personajesSW.addAtTheEnd(new Nodo(pj));
+                    } else if ("st".equals(partes.getpFirst().getpNext().getpNext().getPalabra())) {
+                        pj.setSaga(st);
+                        personajesST.addAtTheEnd(new Nodo(pj)); 
+                    }
+                }
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public int getId() {
         return id;
     }

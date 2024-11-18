@@ -13,12 +13,28 @@ import startrek.starwars.Personaje;
 public class Nodo {
     private Personaje element;
     private Nodo pNext;
+    private String palabra;
 
     public Nodo(Personaje element, Nodo pNext) {
         this.element = element;
         this.pNext = pNext;
+        this.palabra = "";
     }
 
+    public Nodo(String palabra){
+        this.palabra = palabra;
+        this.element = null;
+        this.pNext = null;
+    }
+
+    public String getPalabra() {
+        return palabra;
+    }
+
+    public void setPalabra(String palabra) {
+        this.palabra = palabra;
+    }
+    
     public Nodo(Personaje element) {
         this.element = element;
         this.pNext = null;
