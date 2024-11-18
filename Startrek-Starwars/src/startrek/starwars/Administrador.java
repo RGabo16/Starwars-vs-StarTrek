@@ -32,26 +32,31 @@ public class Administrador {
 //        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     public void Nuevospj(){
-        //toma dos pj y los mete en sus colas
+       // while ((this.listasw.getSize() > 0) and (this.listast.getSize() > 0)){
+         //toma dos pj y los mete en sus colas
         if (!this.getListasw().isEmpty()){
             int numsw=this.getListasw().getpFirst().getElement().getPrioridad();
             switch (numsw) {
                 case 1 ->{
-                    this.getCola1SW().queue(this.getListasw().getpFirst());
-                    this.getColaRSW().queue(this.getListasw().getpFirst());
+                    //arreglar listas refuerzo vacias condicional
+                    Nodo primero = this.getListasw().getpFirst();
                     this.getListasw().DeleteAtTheStart();
+                    this.getCola1SW().queue(primero);
+                    this.getColaRSW().queue(primero);
                     //encolar en prio1 de sw
                 }
                 case 2 -> {
-                    this.getCola2SW().queue(this.getListasw().getpFirst());
-                    this.getColaRSW().queue(this.getListasw().getpFirst());
+                    Nodo primero = this.getListasw().getpFirst();
                     this.getListasw().DeleteAtTheStart();
+                    this.getCola2SW().queue(primero);
+                    this.getColaRSW().queue(primero);
                     
                 }
                 default -> {
-                    this.getCola3SW().queue(this.getListasw().getpFirst());
-                    this.getColaRSW().queue(this.getListasw().getpFirst());
+                    Nodo primero = this.getListasw().getpFirst();
                     this.getListasw().DeleteAtTheStart();
+                    this.getCola3SW().queue(primero);
+                    this.getColaRSW().queue(primero);
                 }
             }
         }
@@ -59,26 +64,29 @@ public class Administrador {
              int numst=this.getListast().getpFirst().getElement().getPrioridad();
             switch (numst) {
                 case 1 ->{
-                    this.getCola1ST().queue(this.getListast().getpFirst());
-                    this.getColaRST().queue(this.getListast().getpFirst());
+                    Nodo primero = this.getListast().getpFirst();
                     this.getListast().DeleteAtTheStart();
+                    this.getCola1ST().queue(primero);
+                    this.getColaRST().queue(primero);
                     //encolar en prio1 de sw
                 }
                 case 2 -> {
-                    this.getCola2ST().queue(this.getListast().getpFirst());
-                    this.getColaRST().queue(this.getListast().getpFirst());
+                    Nodo primero = this.getListast().getpFirst();
                     this.getListast().DeleteAtTheStart();
+                    this.getCola2ST().queue(primero);
+                    this.getColaRST().queue(primero);
                 }
                 default -> {
-                    this.getCola3ST().queue(this.getListast().getpFirst());
-                    this.getColaRST().queue(this.getListast().getpFirst());
+                    Nodo primero = this.getListast().getpFirst();
                     this.getListast().DeleteAtTheStart();
+                    this.getCola3ST().queue(primero);
+                    this.getColaRST().queue(primero);
                 }
             }
         }  System.out.println("Listas vacias");
-           
-        
     }
+   // }
+       
     public void Revision(){
         //80% de si entran o no 
         

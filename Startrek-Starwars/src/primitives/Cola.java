@@ -60,13 +60,15 @@ public class Cola {
      * @param nuevo 
      */
     public void queue(Nodo nuevo){
+        if (nuevo.getpNext() != null){
+            nuevo.setpNext(null);
+        }
         if (this.isEmpty()){
             this.setHead(nuevo);
             this.setTail(nuevo);
         } else {
             getTail().setpNext(nuevo);
             setTail(nuevo);
-            nuevo.setpNext(null);
         }
         setSize(getSize() + 1);
     }

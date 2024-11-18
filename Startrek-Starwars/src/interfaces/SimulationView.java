@@ -382,11 +382,11 @@ public class SimulationView extends javax.swing.JFrame {
         jLabel4.setText("COLA 3");
         principalView.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
 
-        pj1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jean-luc picard star trek.jpg"))); // NOI18N
+        pj1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpeg"))); // NOI18N
         pj1.setText("jLabel9");
         principalView.add(pj1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 200, 300));
 
-        pj2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Darth Vader star wars.jpg"))); // NOI18N
+        pj2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpeg"))); // NOI18N
         pj2.setText("jLabel9");
         principalView.add(pj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 200, 300));
 

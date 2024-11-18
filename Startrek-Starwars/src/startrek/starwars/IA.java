@@ -178,13 +178,13 @@ public class IA extends Thread {
         }
         
         System.out.println("num: " +num);
-        this.getAdmin().contadorPersonaje(this.getAdmin().getCola1SW());
+        /*this.getAdmin().contadorPersonaje(this.getAdmin().getCola1SW());
         this.getAdmin().contadorPersonaje(this.getAdmin().getCola1ST());
         this.getAdmin().contadorPersonaje(this.getAdmin().getCola2ST());
         this.getAdmin().contadorPersonaje(this.getAdmin().getCola3ST());
         this.getAdmin().contadorPersonaje(this.getAdmin().getCola2SW());
         this.getAdmin().contadorPersonaje(this.getAdmin().getCola3SW());
-        this.getAdmin().setCiclos(this.getAdmin().getCiclos()+1);
+        this.getAdmin().setCiclos(this.getAdmin().getCiclos()+1);*/
         //aumentar todos los contadores de los personajes 
        
     }
