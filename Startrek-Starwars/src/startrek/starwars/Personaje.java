@@ -50,10 +50,6 @@ public class Personaje {
         this.imagen = null;
     }
     
-    public Icon buscarImagen(String rutaImagen) throws IOException{
-        Icon image = (Icon) ImageIO.read(new File(rutaImagen));
-        return new ImageIcon((Image) image);
-    }
     
     public void DefinirStats(){
         /*
