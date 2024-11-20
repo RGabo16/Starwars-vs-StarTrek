@@ -89,6 +89,7 @@ public class IA extends Thread {
             this.getListaWin().addAtTheStart(pj1);
             this.getPj1().getElement().getSaga().setPuntos(this.getPj1().getElement().getSaga().getPuntos()+1);
             
+            
         } else if (puntajePj1 == puntajePj2) {
             int decision = (int) (Math.random() * 10 + 1);
             if (decision <= 5){
@@ -109,7 +110,11 @@ public class IA extends Thread {
             this.getListaWin().addAtTheStart(pj2);
             this.getPj2().getElement().getSaga().setPuntos(this.getPj2().getElement().getSaga().getPuntos()+1);
         } 
-       
+        try {
+            Thread.sleep(Duration.ofSeconds((long)(tiempo*2)));
+        } catch (InterruptedException ex) {
+            Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.getAdmin().getColaRST().queue(pj1);
         this.getAdmin().getColaRSW().queue(pj2);
         System.out.println("P2: "+puntajePj2+ " P1: "+ puntajePj1);
@@ -142,8 +147,8 @@ public class IA extends Thread {
             this.getAdmin().getCola3ST().dequeue();
             this.getAdmin().getCola3SW().dequeue();
         }
-        
-        try {
+        if (pj1!=null || pj2!=null){
+            try {
             this.setResultado("Decidiendo...");
               Thread.sleep(Duration.ofSeconds((long)(tiempo*5)));
             } catch (InterruptedException ex) {
@@ -168,18 +173,24 @@ public class IA extends Thread {
             
             
         }else{
+            System.out.println(this.getResultado());
+            this.getAdmin().getColaRSW().queue(pj2);
+            this.getAdmin().getColaRST().queue(pj1);
             try {
             this.setResultado("Pelea Cancelada");
               Thread.sleep(Duration.ofSeconds((long)(tiempo*5)));
             } catch (InterruptedException ex) {
                 Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println(this.getResultado());
-            this.getAdmin().getColaRSW().queue(pj2);
-            this.getAdmin().getColaRST().queue(pj1);
+            
+        }
+        this.setPj1(null);
+        this.setPj2(null);
+        System.out.println("num: " +num);
         }
         
-        System.out.println("num: " +num);
+        
+        
         /*this.getAdmin().contadorPersonaje(this.getAdmin().getCola1SW());
         this.getAdmin().contadorPersonaje(this.getAdmin().getCola1ST());
         this.getAdmin().contadorPersonaje(this.getAdmin().getCola2ST());

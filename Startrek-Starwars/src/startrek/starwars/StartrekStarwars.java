@@ -17,11 +17,11 @@ public class StartrekStarwars extends Thread{
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
         
         IA ia;
-        Thread t0;
         Saga sw, st;
         //se crean las sagas
         sw= new Saga("Star Wars");

@@ -40,6 +40,7 @@ public class Administrador {
                 case 1 ->{
                     //arreglar listas refuerzo vacias condicional
                     Nodo primero = this.getListasw().getpFirst();
+                    this.getListasw().addAtTheEnd(primero);
                     this.getListasw().DeleteAtTheStart();
                     this.getCola1SW().queue(primero);
                     //this.getColaRSW().queue(primero);
@@ -47,6 +48,7 @@ public class Administrador {
                 }
                 case 2 -> {
                     Nodo primero = this.getListasw().getpFirst();
+                    this.getListasw().addAtTheEnd(primero);
                     this.getListasw().DeleteAtTheStart();
                     this.getCola2SW().queue(primero);
                     //this.getColaRSW().queue(primero);
@@ -54,6 +56,7 @@ public class Administrador {
                 }
                 default -> {
                     Nodo primero = this.getListasw().getpFirst();
+                    this.getListasw().addAtTheEnd(primero);
                     this.getListasw().DeleteAtTheStart();
                     this.getCola3SW().queue(primero);
                     //this.getColaRSW().queue(primero);
@@ -65,6 +68,7 @@ public class Administrador {
             switch (numst) {
                 case 1 ->{
                     Nodo primero = this.getListast().getpFirst();
+                    this.getListast().addAtTheEnd(primero);
                     this.getListast().DeleteAtTheStart();
                     this.getCola1ST().queue(primero);
                     //this.getColaRST().queue(primero);
@@ -72,24 +76,26 @@ public class Administrador {
                 }
                 case 2 -> {
                     Nodo primero = this.getListast().getpFirst();
+                    this.getListast().addAtTheEnd(primero);
                     this.getListast().DeleteAtTheStart();
                     this.getCola2ST().queue(primero);
                     //this.getColaRST().queue(primero);
                 }
                 default -> {
                     Nodo primero = this.getListast().getpFirst();
+                    this.getListast().addAtTheEnd(primero);
                     this.getListast().DeleteAtTheStart();
                     this.getCola3ST().queue(primero);
                     //this.getColaRST().queue(primero);
                 }
             }
-        }  System.out.println("Listas vacias");
+        } 
     }
    // }
        
     public void Revision(){
         //80% de si entran o no 
-        
+        this.setCiclos(this.getCiclos()+1);
         if (ciclos%2==0){
           int numrandom=(int)(Math.random()*10);
           if (numrandom>2){
@@ -215,13 +221,15 @@ public class Administrador {
             //Atributo Nombre
             if ("nombre".equals(tipo)){
                     String elementoName = elemento.getElement().getNombre();
-                    modelo.addElement(elementoName);
+                    String elementoID = Integer.toString(elemento.getElement().getId());
+                    modelo.addElement(elementoID + " " + elementoName);
                 
                 // Verifica que haya mas elementos
                 while (elemento.getpNext() != null){
                     elemento = elemento.getpNext();
                     elementoName = elemento.getElement().getNombre();
-                    modelo.addElement(elementoName);
+                    elementoID = Integer.toString(elemento.getElement().getId());
+                    modelo.addElement(elementoID + " " + elementoName);
                 }
             }
             

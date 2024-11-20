@@ -137,12 +137,12 @@ public class SimulationView extends javax.swing.JFrame {
         this.jScrollPane3 = jScrollPane3;
     }
 
-    public JScrollPane getjScrollPane4() {
-        return jScrollPane4;
+    public JScrollPane getjScrollPane10() {
+        return jScrollPane10;
     }
 
-    public void setjScrollPane4(JScrollPane jScrollPane4) {
-        this.jScrollPane4 = jScrollPane4;
+    public void setjScrollPane10(JScrollPane jScrollPane10) {
+        this.jScrollPane10 = jScrollPane10;
     }
 
     public JScrollPane getjScrollPane5() {
@@ -169,12 +169,12 @@ public class SimulationView extends javax.swing.JFrame {
         this.jScrollPane7 = jScrollPane7;
     }
 
-    public JScrollPane getjScrollPane8() {
-        return jScrollPane8;
+    public JScrollPane getjScrollPane9() {
+        return jScrollPane9;
     }
 
-    public void setjScrollPane8(JScrollPane jScrollPane8) {
-        this.jScrollPane8 = jScrollPane8;
+    public void setjScrollPane9(JScrollPane jScrollPane9) {
+        this.jScrollPane9 = jScrollPane9;
     }
 
     public JLabel getPj1() {
@@ -233,12 +233,12 @@ public class SimulationView extends javax.swing.JFrame {
         this.stCola3 = stCola3;
     }
 
-    public JList<String> getStColaRefuerzo() {
-        return stColaRefuerzo;
+    public JList<String> getStRefuerzo() {
+        return stRefuerzo;
     }
 
-    public void setStColaRefuerzo(JList<String> stColaRefuerzo) {
-        this.stColaRefuerzo = stColaRefuerzo;
+    public void setStRefuerzo(JList<String> stColaRefuerzo) {
+        this.stRefuerzo = stColaRefuerzo;
     }
 
     public JList<String> getSwCola1() {
@@ -265,12 +265,12 @@ public class SimulationView extends javax.swing.JFrame {
         this.swCola3 = swCola3;
     }
 
-    public JList<String> getSwColaRefuerzo() {
-        return swColaRefuerzo;
+    public JList<String> getSwRefuerzo() {
+        return swRefuerzo;
     }
 
-    public void setSwColaRefuerzo(JList<String> swColaRefuerzo) {
-        this.swColaRefuerzo = swColaRefuerzo;
+    public void setSwRefuerzo(JList<String> swColaRefuerzo) {
+        this.swRefuerzo = swColaRefuerzo;
     }
 
     public JComboBox<String> getTiempoSegundo() {
@@ -332,14 +332,16 @@ public class SimulationView extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         iaEstado = new javax.swing.JLabel();
         tiempoSegundo = new javax.swing.JComboBox<>();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        stRefuerzo = new javax.swing.JList<>();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        swRefuerzo = new javax.swing.JList<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         swCola1 = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         swCola2 = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         swCola3 = new javax.swing.JList<>();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        swColaRefuerzo = new javax.swing.JList<>();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         stCola1 = new javax.swing.JList<>();
@@ -350,8 +352,6 @@ public class SimulationView extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         stCola3 = new javax.swing.JList<>();
         jLabel8 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        stColaRefuerzo = new javax.swing.JList<>();
         title = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
@@ -421,6 +421,24 @@ public class SimulationView extends javax.swing.JFrame {
         });
         principalView.add(tiempoSegundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 735, 110, -1));
 
+        stRefuerzo.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane10.setViewportView(stRefuerzo);
+
+        principalView.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 580, 200, 100));
+
+        swRefuerzo.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane9.setViewportView(swRefuerzo);
+
+        principalView.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 200, 100));
+
         swCola1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -447,15 +465,6 @@ public class SimulationView extends javax.swing.JFrame {
         jScrollPane3.setViewportView(swCola3);
 
         principalView.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 200, 100));
-
-        swColaRefuerzo.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane4.setViewportView(swColaRefuerzo);
-
-        principalView.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, 200, 100));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(java.awt.Color.white);
@@ -503,15 +512,6 @@ public class SimulationView extends javax.swing.JFrame {
         jLabel8.setForeground(java.awt.Color.white);
         jLabel8.setText("COLA DE REFUERZO");
         principalView.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 550, -1, -1));
-
-        stColaRefuerzo.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane8.setViewportView(stColaRefuerzo);
-
-        principalView.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 570, 200, 100));
 
         title.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         title.setForeground(java.awt.Color.white);
@@ -583,13 +583,13 @@ public class SimulationView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel pj1;
     private javax.swing.JLabel pj2;
     private javax.swing.JPanel principalView;
@@ -597,11 +597,11 @@ public class SimulationView extends javax.swing.JFrame {
     private javax.swing.JList<String> stCola1;
     private javax.swing.JList<String> stCola2;
     private javax.swing.JList<String> stCola3;
-    private javax.swing.JList<String> stColaRefuerzo;
+    private javax.swing.JList<String> stRefuerzo;
     private javax.swing.JList<String> swCola1;
     private javax.swing.JList<String> swCola2;
     private javax.swing.JList<String> swCola3;
-    private javax.swing.JList<String> swColaRefuerzo;
+    private javax.swing.JList<String> swRefuerzo;
     private javax.swing.JComboBox<String> tiempoSegundo;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
