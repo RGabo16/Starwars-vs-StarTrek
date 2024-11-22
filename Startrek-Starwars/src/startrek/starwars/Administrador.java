@@ -22,6 +22,7 @@ public class Administrador {
     Cola colaRST = new Cola();
     Lista listasw;
     Lista listast;
+    int contador=0;
 
     public Administrador(Lista sw,Lista st) {
         this.listasw=sw;
@@ -31,6 +32,7 @@ public class Administrador {
     public Administrador() {
 //        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
     public void Nuevospj(){
        // while ((this.listasw.getSize() > 0) and (this.listast.getSize() > 0)){
          //toma dos pj y los mete en sus colas
@@ -40,6 +42,8 @@ public class Administrador {
                 case 1 ->{
                     //arreglar listas refuerzo vacias condicional
                     Nodo primero = this.getListasw().getpFirst();
+                    primero.getElement().setId(contador);
+                    this.setContador(contador+1);
                     this.getListasw().addAtTheEnd(primero);
                     this.getListasw().DeleteAtTheStart();
                     this.getCola1SW().queue(primero);
@@ -48,6 +52,8 @@ public class Administrador {
                 }
                 case 2 -> {
                     Nodo primero = this.getListasw().getpFirst();
+                    primero.getElement().setId(contador);
+                    this.setContador(contador+1);
                     this.getListasw().addAtTheEnd(primero);
                     this.getListasw().DeleteAtTheStart();
                     this.getCola2SW().queue(primero);
@@ -56,6 +62,8 @@ public class Administrador {
                 }
                 default -> {
                     Nodo primero = this.getListasw().getpFirst();
+                    primero.getElement().setId(contador);
+                    this.setContador(contador+1);
                     this.getListasw().addAtTheEnd(primero);
                     this.getListasw().DeleteAtTheStart();
                     this.getCola3SW().queue(primero);
@@ -68,6 +76,8 @@ public class Administrador {
             switch (numst) {
                 case 1 ->{
                     Nodo primero = this.getListast().getpFirst();
+                    primero.getElement().setId(contador);
+                    this.setContador(contador+1);
                     this.getListast().addAtTheEnd(primero);
                     this.getListast().DeleteAtTheStart();
                     this.getCola1ST().queue(primero);
@@ -76,6 +86,8 @@ public class Administrador {
                 }
                 case 2 -> {
                     Nodo primero = this.getListast().getpFirst();
+                    primero.getElement().setId(contador);
+                    this.setContador(contador+1);
                     this.getListast().addAtTheEnd(primero);
                     this.getListast().DeleteAtTheStart();
                     this.getCola2ST().queue(primero);
@@ -83,6 +95,8 @@ public class Administrador {
                 }
                 default -> {
                     Nodo primero = this.getListast().getpFirst();
+                    primero.getElement().setId(contador);
+                    this.setContador(contador+1);
                     this.getListast().addAtTheEnd(primero);
                     this.getListast().DeleteAtTheStart();
                     this.getCola3ST().queue(primero);
@@ -208,6 +222,14 @@ public class Administrador {
 
     public void setListast(Lista listast) {
         this.listast = listast;
+    }
+
+    public int getContador() {
+        return contador;
+    }
+
+    public void setContador(int contador) {
+        this.contador = contador;
     }
     
     public DefaultListModel getAtributo (Cola cola, String tipo){
